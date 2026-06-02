@@ -4301,11 +4301,11 @@ header .logo-link span {
 /* Stickers Slide Collage overrides */
 .stickers-grid-collage {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
   max-width: 580px;
   position: relative;
-  padding: 10px;
+  padding: 5px;
 }
 
 #slide-stickers .collage-item {
@@ -4329,15 +4329,20 @@ header .logo-link span {
 }
 
 /* Overlapping rotations to create the stickers look */
-#slide-stickers .collage-item.item-1 { transform: rotate(-6deg) translate(-5px, 5px); }
-#slide-stickers .collage-item.item-2 { transform: rotate(4deg) translate(5px, -5px); }
-#slide-stickers .collage-item.item-3 { transform: rotate(-3deg) translate(0, 8px); }
-#slide-stickers .collage-item.item-4 { transform: rotate(5deg) translate(-8px, -4px); }
-#slide-stickers .collage-item.item-5 { transform: rotate(-5deg) translate(6px, 6px); }
-#slide-stickers .collage-item.item-6 { transform: rotate(2deg) translate(-2px, -8px); }
-#slide-stickers .collage-item.item-7 { transform: rotate(-4deg) translate(8px, 4px); }
-#slide-stickers .collage-item.item-8 { transform: rotate(6deg) translate(-6px, 10px); }
-#slide-stickers .collage-item.item-9 { transform: rotate(-2deg) translate(4px, -6px); }
+#slide-stickers .collage-item.item-1 { transform: rotate(-5deg) translateY(5px); }
+#slide-stickers .collage-item.item-2 { transform: rotate(3deg) translateY(-4px); }
+#slide-stickers .collage-item.item-3 { transform: rotate(-2deg) translateY(6px); }
+#slide-stickers .collage-item.item-4 { transform: rotate(4deg) translateY(-8px); }
+#slide-stickers .collage-item.item-5 { transform: rotate(-3deg) translateY(10px); }
+#slide-stickers .collage-item.item-6 { transform: rotate(6deg) translateY(-6px); }
+#slide-stickers .collage-item.item-7 { transform: rotate(-4deg) translateY(8px); }
+#slide-stickers .collage-item.item-8 { transform: rotate(2deg) translateY(-10px); }
+#slide-stickers .collage-item.item-9 { transform: rotate(-6deg) translateY(12px); }
+#slide-stickers .collage-item.item-10 { transform: rotate(5deg) translateY(-5px); }
+#slide-stickers .collage-item.item-11 { transform: rotate(-3deg) translateY(7px); }
+#slide-stickers .collage-item.item-12 { transform: rotate(4deg) translateY(-8px); }
+#slide-stickers .collage-item.item-13 { transform: rotate(-5deg) translateY(10px); }
+#slide-stickers .collage-item.item-14 { transform: rotate(3deg) translateY(-6px); }
 
 #slide-stickers .collage-item:hover {
   transform: scale(1.22) rotate(0deg) !important;
