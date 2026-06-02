@@ -2,7 +2,7 @@
 
 const CATEGORIES = [
   { id: "visiting-cards", name: "Visiting Cards", image: "https://images.unsplash.com/photo-1596495578065-6e0763fa1141?q=80&w=150" },
-  { id: "stationery-letterheads-notebooks", name: "Stationery, Letterheads & Notebooks", image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=150" },
+  { id: "stationery-letterheads-notebooks", name: "Stationary", image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=150" },
   { id: "stamps-ink", name: "Stamps and Ink", image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=150" },
   { id: "posters-signs", name: "Posters", image: "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=150" },
   { id: "stickers-labels", name: "Stickers & Labels", image: "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=150" },
@@ -417,7 +417,7 @@ const PRODUCTS = [
   // --- STATIONERY, LETTERHEADS & NOTEBOOKS ---
   {
     id: "letterheads",
-    name: "Corporate Letterheads",
+    name: "LetterHead",
     category: "stationery-letterheads-notebooks",
     price: 450,
     badge: "BUY 50 @ ₹450",
@@ -445,39 +445,67 @@ const PRODUCTS = [
     }
   },
   {
-    id: "premium-notebooks",
-    name: "Premium Softcover & Hardcover Notebooks",
+    id: "envelopes",
+    name: "Envelops",
     category: "stationery-letterheads-notebooks",
     price: 150,
     badge: "Starting at ₹150",
-    image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=300",
-    description: "Custom corporate notebooks and diaries with your company logo embossed or printed. Perfect for employee onboarding and client gifts.",
+    image: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=300",
+    description: "Premium customized corporate envelopes. Available in standard office sizes with secure self-adhesive seal flaps.",
     specifications: {
-      "Size": "A5 (148 x 210 mm)",
-      "Pages": "160 Ruled Pages (80 GSM)",
-      "Cover": "Hard Bound or Soft Matte PU Leather",
-      "Production Time": "3-4 business days"
+      "Size": "9.5\" x 4.5\" (Office Standard)",
+      "Material": "120 GSM Luxury Bond Paper",
+      "Seal Type": "Peel & Seal Adhesive Flap",
+      "Production Time": "2-3 business days"
     },
     options: {
       quantity: [
-        { label: "1 unit", value: 1, priceMultiplier: 1.0 },
-        { label: "10 units", value: 10, priceMultiplier: 9.0 },
-        { label: "50 units", value: 50, priceMultiplier: 42.0 },
-        { label: "100 units", value: 100, priceMultiplier: 80.0 }
+        { label: "50 Envelops", value: 50, priceMultiplier: 1.0 },
+        { label: "100 Envelops", value: 100, priceMultiplier: 1.8 },
+        { label: "500 Envelops", value: 500, priceMultiplier: 7.2 }
       ],
       paper: [
-        { label: "Ruled White Pages (80 GSM)", value: "ruled", extraCost: 0 },
-        { label: "Unruled Ivory Pages (90 GSM)", value: "unruled", extraCost: 30 }
+        { label: "120 GSM Classic White Bond", value: "bond-120", extraCost: 0 },
+        { label: "130 GSM Recycled Kraft Paper", value: "kraft-130", extraCost: 20 }
       ],
       finish: [
-        { label: "Logo Screen Print (1 Color)", value: "print", extraCost: 0 },
-        { label: "Logo Debossing / Foil Stamp", value: "deboss", extraCost: 50 }
+        { label: "Single Sided Custom Printing", value: "print-single", extraCost: 0 }
+      ]
+    }
+  },
+  {
+    id: "certificates",
+    name: "Certificates",
+    category: "stationery-letterheads-notebooks",
+    price: 250,
+    badge: "Starting at ₹250",
+    image: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=300",
+    description: "Elegant award and participation certificates printed on premium textured heavy-weight paper stocks. Perfect for corporate events, schools, and workshops.",
+    specifications: {
+      "Size": "A4 Standard (210 x 297 mm)",
+      "Material": "300 GSM Textured Off-White Paper",
+      "Border Details": "Elegant Custom Boarders",
+      "Production Time": "2 business days"
+    },
+    options: {
+      quantity: [
+        { label: "10 Certificates", value: 10, priceMultiplier: 1.0 },
+        { label: "50 Certificates", value: 50, priceMultiplier: 4.0 },
+        { label: "100 Certificates", value: 100, priceMultiplier: 7.5 }
+      ],
+      paper: [
+        { label: "300 GSM Textured Card Stock", value: "textured-300", extraCost: 0 },
+        { label: "350 GSM Pearl Metallic Stock", value: "pearl-350", extraCost: 50 }
+      ],
+      finish: [
+        { label: "Standard Digital Print", value: "digital", extraCost: 0 },
+        { label: "Gold Foil Accents", value: "gold-foil", extraCost: 150 }
       ]
     }
   },
   {
     id: "booklets",
-    name: "Custom Multi-Page Booklets",
+    name: "Booklets",
     category: "stationery-letterheads-notebooks",
     price: 650,
     badge: "Starting at ₹650",
@@ -502,6 +530,65 @@ const PRODUCTS = [
       finish: [
         { label: "Standard Staple Bound", value: "staple", extraCost: 0 },
         { label: "Spiral Coil Bound", value: "spiral", extraCost: 50 }
+      ]
+    }
+  },
+  {
+    id: "brochures",
+    name: "Brouchers",
+    category: "stationery-letterheads-notebooks",
+    price: 350,
+    badge: "Starting at ₹350",
+    image: "https://images.unsplash.com/photo-1561070791-26c113006238?q=80&w=300",
+    description: "Premium bi-fold and tri-fold marketing brochures to showcase your business offerings. High definition color prints on smooth glossy paper.",
+    specifications: {
+      "Size": "A4 Folded to A5 or DL",
+      "Material": "170 GSM Art Paper",
+      "Fold Type": "Bi-fold / Tri-fold / Z-fold",
+      "Production Time": "3-4 business days"
+    },
+    options: {
+      quantity: [
+        { label: "50 Brouchers", value: 50, priceMultiplier: 1.0 },
+        { label: "100 Brouchers", value: 100, priceMultiplier: 1.8 },
+        { label: "500 Brouchers", value: 500, priceMultiplier: 7.0 }
+      ],
+      paper: [
+        { label: "170 GSM Glossy Art Paper", value: "gloss-170", extraCost: 0 },
+        { label: "250 GSM Premium Matte Paper", value: "matte-250", extraCost: 40 }
+      ],
+      finish: [
+        { label: "Standard Machine Fold", value: "fold", extraCost: 0 }
+      ]
+    }
+  },
+  {
+    id: "flyers",
+    name: "Flyers",
+    category: "stationery-letterheads-notebooks",
+    price: 120,
+    badge: "Starting at ₹120",
+    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=300",
+    description: "Vibrant custom promotional flyers. Ideal for mass distribution, menus, event announcements, and local marketing campaigns.",
+    specifications: {
+      "Size": "A5 Standard (148 x 210 mm)",
+      "Material": "130 GSM Gloss Art Paper",
+      "Print Sides": "Single or Double-sided",
+      "Production Time": "1-2 business days"
+    },
+    options: {
+      quantity: [
+        { label: "100 Flyers", value: 100, priceMultiplier: 1.0 },
+        { label: "500 Flyers", value: 500, priceMultiplier: 4.0 },
+        { label: "1000 Flyers", value: 1000, priceMultiplier: 7.0 }
+      ],
+      paper: [
+        { label: "130 GSM Glossy Paper", value: "gloss-130", extraCost: 0 },
+        { label: "170 GSM Premium Glossy", value: "gloss-170", extraCost: 20 }
+      ],
+      finish: [
+        { label: "Single-Sided Print", value: "single", extraCost: 0 },
+        { label: "Double-Sided Print", value: "double", extraCost: 30 }
       ]
     }
   },

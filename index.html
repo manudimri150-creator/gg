@@ -173,7 +173,7 @@
         <span class="marquee-dot">✦</span>
         <span>Posters</span>
         <span class="marquee-dot">✦</span>
-        <span>Notebooks</span>
+        <span>Stationary</span>
         <span class="marquee-dot">✦</span>
         <span>Stickers</span>
         <span class="marquee-dot">✦</span>
@@ -190,7 +190,7 @@
         <span class="marquee-dot">✦</span>
         <span>Posters</span>
         <span class="marquee-dot">✦</span>
-        <span>Notebooks</span>
+        <span>Stationary</span>
         <span class="marquee-dot">✦</span>
         <span>Stickers</span>
         <span class="marquee-dot">✦</span>
@@ -478,12 +478,12 @@
     <section class="dual-promo" aria-label="Special Offers">
       <div class="promo-half promo-half-left">
         <div class="promo-half-content">
-          <h3 class="promo-half-title">Stamps and Ink & Stationery</h3>
+          <h3 class="promo-half-title">Stamps and Ink & Stationary</h3>
           <p class="promo-half-subline">Pre-inked stamps, seals, and ink pads starting at ₹249</p>
           <div class="promo-half-ctas">
             <a href="category.html?category=stamps-ink" class="btn btn-outline-white">Stamps & Ink</a>
-            <a href="product.html?id=letterheads" class="btn btn-outline-white">Letterheads</a>
-            <a href="product.html?id=custom-qr-stand" class="btn btn-outline-white">QR Code Stands</a>
+            <a href="product.html?id=letterheads" class="btn btn-outline-white">LetterHead</a>
+            <a href="product.html?id=envelopes" class="btn btn-outline-white">Envelops</a>
           </div>
         </div>
       </div>
@@ -667,7 +667,7 @@
       if (popTrack) {
         popTrack.innerHTML = '';
         const popProds = data.PRODUCTS.filter(p => [
-          'std-visiting-cards', 'round-visiting-cards', 'letterheads', 'premium-notebooks', 'self-inking-stamps', 'stickers'
+          'std-visiting-cards', 'round-visiting-cards', 'letterheads', 'envelopes', 'self-inking-stamps', 'stickers'
         ].includes(p.id));
         popProds.forEach(prod => popTrack.appendChild(createProductCard(prod)));
       }
@@ -677,7 +677,7 @@
       if (trendTrack) {
         trendTrack.innerHTML = '';
         const trendProds = data.PRODUCTS.filter(p => [
-          'classic-visiting-cards', 'spot-uv-visiting-cards', 'custom-qr-stand', 'sheet-stickers', 'posters', 'roll-banners'
+          'classic-visiting-cards', 'spot-uv-visiting-cards', 'flyers', 'sheet-stickers', 'posters', 'roll-banners'
         ].includes(p.id));
         trendProds.forEach(prod => trendTrack.appendChild(createProductCard(prod)));
       }
@@ -711,7 +711,7 @@
       if (newTrack) {
         newTrack.innerHTML = '';
         const newProds = data.PRODUCTS.filter(p => [
-          'self-inking-stamps', 'premium-notebooks', 'transline-board', 'lollipop-board', 'acrylic-signs', 'canopy-tents'
+          'self-inking-stamps', 'brochures', 'transline-board', 'lollipop-board', 'acrylic-signs', 'canopy-tents'
         ].includes(p.id));
         newProds.forEach(prod => newTrack.appendChild(createProductCard(prod)));
       }
