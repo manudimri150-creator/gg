@@ -4349,6 +4349,89 @@ header .logo-link span {
   box-shadow: 0 10px 30px rgba(192, 132, 252, 0.6);
 }
 
+/* Slide 4: Retro Photo Prints Slide styles */
+#slide-retro-prints {
+  background-color: #240056; /* Branded deep purple background */
+}
+
+.retro-prints-collage {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+#slide-retro-prints .collage-item {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: #ffffff; /* White polaroid background card */
+  padding: 8px; /* Polaroid frame border padding */
+}
+
+#slide-retro-prints .collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+/* Scattered Positions matching layout */
+#slide-retro-prints .collage-item.item-1 {
+  width: 42%;
+  top: 5%;
+  left: 20%;
+  z-index: 2;
+  transform: rotate(-3deg);
+}
+
+#slide-retro-prints .collage-item.item-2 {
+  width: 40%;
+  top: 0;
+  right: 5%;
+  z-index: 3;
+  transform: rotate(5deg);
+}
+
+#slide-retro-prints .collage-item.item-3 {
+  width: 35%;
+  bottom: 0%;
+  left: 5%;
+  z-index: 3;
+  transform: rotate(-6deg);
+}
+
+#slide-retro-prints .collage-item.item-4 {
+  width: 42%;
+  bottom: -5%;
+  left: 35%;
+  z-index: 2;
+  transform: rotate(2deg);
+}
+
+#slide-retro-prints .collage-item.item-5 {
+  width: 38%;
+  bottom: 5%;
+  right: 0;
+  z-index: 1;
+  transform: rotate(-4deg);
+}
+
+#slide-retro-prints .collage-item:hover {
+  transform: scale(1.15) rotate(0deg) !important;
+  z-index: 10;
+  box-shadow: 0 15px 35px rgba(192, 132, 252, 0.6);
+}
+
+@media (max-width: 576px) {
+  .retro-prints-collage {
+    height: 300px;
+  }
+}
+
 @media (max-width: 991px) {
   .slider-wrapper {
     height: auto;
