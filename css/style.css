@@ -3998,7 +3998,7 @@ header .logo-link span {
   position: relative;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 60px var(--spacing-md) 40px;
+  padding: 60px 80px 40px;
 }
 
 .slider-wrapper {
@@ -4157,7 +4157,7 @@ header .logo-link span {
 /* Slider Arrows */
 .slider-arrow {
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   width: 46px;
   height: 46px;
@@ -4189,11 +4189,11 @@ header .logo-link span {
 }
 
 .slider-arrow.arrow-left {
-  left: -20px;
+  left: 20px;
 }
 
 .slider-arrow.arrow-right {
-  right: -20px;
+  right: 20px;
 }
 
 /* Posters grid collage */
@@ -4463,14 +4463,19 @@ header .logo-link span {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
+  .slider-container {
+    padding: 60px 70px 40px;
+  }
   .slider-arrow {
     top: 50%;
+    width: 40px;
+    height: 40px;
   }
   .slider-arrow.arrow-left {
-    left: -10px;
+    left: 15px;
   }
   .slider-arrow.arrow-right {
-    right: -10px;
+    right: 15px;
   }
 }
 
@@ -4499,15 +4504,18 @@ header .logo-link span {
   .slide-bottom-trust {
     grid-template-columns: 1fr;
   }
+  .slider-container {
+    padding: 50px 50px 40px;
+  }
   .slider-arrow {
     width: 36px;
     height: 36px;
   }
   .slider-arrow.arrow-left {
-    left: -5px;
+    left: 8px;
   }
   .slider-arrow.arrow-right {
-    right: -5px;
+    right: 8px;
   }
 }
 
