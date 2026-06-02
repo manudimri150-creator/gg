@@ -4,10 +4,8 @@ const CATEGORIES = [
   { id: "visiting-cards", name: "Visiting Cards", image: "https://images.unsplash.com/photo-1596495578065-6e0763fa1141?q=80&w=150" },
   { id: "stationery-letterheads-notebooks", name: "Stationery, Letterheads & Notebooks", image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=150" },
   { id: "stamps-ink", name: "Stamps and Ink", image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=150" },
-  { id: "posters-signs", name: "Signs & Posters", image: "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=150" },
+  { id: "posters-signs", name: "Posters", image: "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=150" },
   { id: "stickers-labels", name: "Stickers & Labels", image: "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=150" },
-  { id: "packaging", name: "Packaging", image: "https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=150" },
-  { id: "marketing-materials", name: "Marketing Materials", image: "https://images.unsplash.com/photo-1561070791-26c113006238?q=80&w=150" },
   { id: "gifting", name: "Custom Gifting", image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=150" }
 ];
 
@@ -540,36 +538,6 @@ const PRODUCTS = [
       ]
     }
   },
-  {
-    id: "custom-qr-stand",
-    name: "Customised QR Code Stand",
-    category: "stamps-ink",
-    price: 249,
-    badge: "NEW ✨ Starting at ₹249",
-    image: "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?q=80&w=300",
-    description: "Acrylic table standees customized with your UPI QR codes (GPay, PhonePe, Paytm). Perfect for billing desks.",
-    specifications: {
-      "Dimensions": "4\" x 6\" Tabletop",
-      "Material": "3mm Premium Acrylic",
-      "Base": "Wooden slot base or Acrylic stand",
-      "Production Time": "2 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Stand", value: 1, priceMultiplier: 1.0 },
-        { label: "5 Stands", value: 5, priceMultiplier: 4.5 },
-        { label: "20 Stands", value: 20, priceMultiplier: 16.0 }
-      ],
-      paper: [
-        { label: "Standard Flat Acrylic Stand", value: "acrylic-flat", extraCost: 0 },
-        { label: "Eco Beechwood Wooden Base Stand", value: "wooden-base", extraCost: 100 }
-      ],
-      finish: [
-        { label: "UPI QR Print Only", value: "qr-only", extraCost: 0 },
-        { label: "QR Code + Social Handles Custom Graphics", value: "qr-social", extraCost: 50 }
-      ]
-    }
-  },
 
   // --- SIGNS & POSTERS ---
   {
@@ -1073,66 +1041,6 @@ const PRODUCTS = [
       ],
       finish: [
         { label: "Glossy Finish", value: "glossy", extraCost: 0 }
-      ]
-    }
-  },
-  {
-    id: "embroidered-bags",
-    name: "Embroidered Laptop Bags",
-    category: "gifting",
-    price: 950,
-    badge: "Starting at ₹950",
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=300",
-    description: "Durable polyester laptop backpacks customized with your organization's embroidered emblem on the front pocket.",
-    specifications: {
-      "Capacity": "24 Litres (Up to 15.6\" Laptops)",
-      "Material": "Waterproof Ballistic Nylon",
-      "Pockets": "3 main compartments, water bottle mesh",
-      "Production Time": "6-7 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Bag", value: 1, priceMultiplier: 1.0 },
-        { label: "5 Bags", value: 5, priceMultiplier: 4.8 },
-        { label: "20 Bags", value: 20, priceMultiplier: 18.0 }
-      ],
-      paper: [
-        { label: "Standard Office Backpack", value: "std-backpack", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Single Logo Stitching", value: "logo-stitch", extraCost: 0 },
-        { label: "Dual Location Stitching", value: "dual-stitch", extraCost: 120 }
-      ]
-    }
-  },
-  {
-    id: "american-tourister-bag",
-    name: "American Tourister Laptop Bag with Rain Cover",
-    category: "gifting",
-    price: 1850,
-    badge: "Starting at ₹1,850",
-    image: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=300",
-    description: "Premium American Tourister backpacks with embedded rain covers. Customized with custom brand prints or embroidery logo.",
-    specifications: {
-      "Brand": "American Tourister",
-      "Volume": "32 Litres",
-      "Rain Cover": "Yes, included in bottom zip",
-      "Warranty": "1 Year International",
-      "Production Time": "7-9 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Bag", value: 1, priceMultiplier: 1.0 },
-        { label: "10 Bags", value: 10, priceMultiplier: 9.8 },
-        { label: "50 Bags", value: 50, priceMultiplier: 46.0 }
-      ],
-      paper: [
-        { label: "AT Signature Black Bag", value: "at-black", extraCost: 0 },
-        { label: "AT Signature Navy Bag", value: "at-navy", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Laser Heat Transfer Brand Print", value: "laser-print", extraCost: 0 },
-        { label: "Premium Silken Embroidery", value: "premium-stitch", extraCost: 150 }
       ]
     }
   }
