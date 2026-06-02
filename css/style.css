@@ -4298,6 +4298,12 @@ header .logo-link span {
   display: block;
 }
 
+/* Stickers Slide Collage overrides */
+#slide-stickers .collage-item {
+  background-color: #240056; /* Branded deep purple background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 /* responsive */
 @media (max-width: 991px) {
   .slider-wrapper {
