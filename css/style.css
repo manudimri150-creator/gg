@@ -4298,58 +4298,50 @@ header .logo-link span {
   display: block;
 }
 
-/* Stickers Slide Collage overrides */
+/* Stickers Slide Collage overrides - Premium Grid Alignment */
 .stickers-grid-collage {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  gap: 12px;
   max-width: 580px;
-  position: relative;
+  width: 100%;
   padding: 5px;
 }
 
 #slide-stickers .collage-item {
-  background-color: transparent; /* No purple box background, let the sticker stand out */
-  box-shadow: none; /* Shadow handled by image filter drop-shadow */
+  background-color: #ffffff; /* Premium white background for seamless JPG blending */
+  border-radius: 12px; /* Smooth rounded corners */
+  padding: 10px; /* Let the stickers breathe */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* Elegant drop shadow */
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  aspect-ratio: 1; /* Keep them square/circular container */
+  aspect-ratio: 1; /* Clean square bounding box */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #slide-stickers .collage-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Fit the sticker nicely inside the square */
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35)); /* Drop shadow around the sticker shape */
-  border-radius: 8px;
+  object-fit: contain; /* Never crop or distort the sticker shapes */
+  transition: transform 0.3s ease;
 }
 
-/* Overlapping rotations to create the stickers look */
-#slide-stickers .collage-item.item-1 { transform: rotate(-5deg) translateY(5px); }
-#slide-stickers .collage-item.item-2 { transform: rotate(3deg) translateY(-4px); }
-#slide-stickers .collage-item.item-3 { transform: rotate(-2deg) translateY(6px); }
-#slide-stickers .collage-item.item-4 { transform: rotate(4deg) translateY(-8px); }
-#slide-stickers .collage-item.item-5 { transform: rotate(-3deg) translateY(10px); }
-#slide-stickers .collage-item.item-6 { transform: rotate(6deg) translateY(-6px); }
-#slide-stickers .collage-item.item-7 { transform: rotate(-4deg) translateY(8px); }
-#slide-stickers .collage-item.item-8 { transform: rotate(2deg) translateY(-10px); }
-#slide-stickers .collage-item.item-9 { transform: rotate(-6deg) translateY(12px); }
-#slide-stickers .collage-item.item-10 { transform: rotate(5deg) translateY(-5px); }
-#slide-stickers .collage-item.item-11 { transform: rotate(-3deg) translateY(7px); }
-#slide-stickers .collage-item.item-12 { transform: rotate(4deg) translateY(-8px); }
-#slide-stickers .collage-item.item-13 { transform: rotate(-5deg) translateY(10px); }
-#slide-stickers .collage-item.item-14 { transform: rotate(3deg) translateY(-6px); }
-
 #slide-stickers .collage-item:hover {
-  transform: scale(1.22) rotate(0deg) !important;
+  transform: translateY(-6px) scale(1.06); /* Clean linear hover elevation */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(192, 132, 252, 0.4); /* Elegant purple glow */
+  border-color: rgba(192, 132, 252, 0.6);
   z-index: 10;
 }
 
-/* responsive */
+@media (max-width: 576px) {
+  .stickers-grid-collage {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on small viewports for legibility */
+    gap: 8px;
+  }
+}
+
 @media (max-width: 991px) {
   .slider-wrapper {
     height: auto;
