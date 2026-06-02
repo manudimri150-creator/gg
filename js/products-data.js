@@ -53,7 +53,7 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-  # --- VISITING CARDS ---
+  // --- VISITING CARDS ---
   {
     "id": "business-cards",
     "name": "Business Cards",
@@ -145,7 +145,7 @@ const PRODUCTS = [
     }
   },
 
-  # --- STATIONERY - PAPER PRODUCTS ---
+  // --- STATIONERY - PAPER PRODUCTS ---
   {
     "id": "thank-you-cards",
     "name": "Thank You Cards",
@@ -259,7 +259,7 @@ const PRODUCTS = [
     }
   },
 
-  # --- STATIONERY - PACKAGING & TAGS ---
+  // --- STATIONERY - PACKAGING & TAGS ---
   {
     "id": "clothing-tags",
     "name": "Clothing Tags",
@@ -325,7 +325,7 @@ const PRODUCTS = [
     }
   },
 
-  # --- STATIONERY - BUSINESS ESSENTIALS ---
+  // --- STATIONERY - BUSINESS ESSENTIALS ---
   {
     "id": "letterheads",
     "name": "Letterheads",
@@ -407,7 +407,7 @@ const PRODUCTS = [
     }
   },
 
-  # --- STAMPS AND INK ---
+  // --- STAMPS AND INK ---
   {
     "id": "self-inking-stamps",
     "name": "Rubber Stamps",
@@ -454,7 +454,7 @@ const PRODUCTS = [
     }
   },
 
-  # --- POSTERS ---
+  // --- POSTERS ---
   {
     "id": "posters-cars",
     "name": "Velocity & Pistons (Cars)",
@@ -568,7 +568,7 @@ const PRODUCTS = [
     }
   },
 
-  # --- STICKERS & LABELS ---
+  // --- STICKERS & LABELS ---
   {
     "id": "sheet-stickers",
     "name": "Die Cut Stickers",
@@ -645,7 +645,7 @@ const PRODUCTS = [
     }
   },
 
-  # --- CUSTOM GIFTING ---
+  // --- CUSTOM GIFTING ---
   {
     "id": "retro-prints",
     "name": "Retro Photos Prints",
@@ -752,7 +752,7 @@ const PRODUCTS = [
     }
   },
 
-  # --- EVENT & MARKETING ---
+  // --- EVENT & MARKETING ---
   {
     "id": "event-tickets",
     "name": "Event Tickets",
