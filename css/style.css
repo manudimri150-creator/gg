@@ -4298,48 +4298,54 @@ header .logo-link span {
   display: block;
 }
 
-/* Stickers Slide Collage overrides - Premium Grid Alignment */
+/* Stickers Slide Collage overrides - Overlapping Scattered Collage matching Posters */
 .stickers-grid-collage {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  gap: 10px;
   max-width: 580px;
-  width: 100%;
-  padding: 5px;
+  position: relative;
 }
 
 #slide-stickers .collage-item {
-  background-color: #ffffff; /* Premium white background for seamless JPG blending */
-  border-radius: 12px; /* Smooth rounded corners */
-  padding: 10px; /* Let the stickers breathe */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* Elegant drop shadow */
+  background-color: #ffffff; /* White card background to blend sticker JPGs seamlessly */
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  aspect-ratio: 0.75; /* Identical rectangular aspect ratio to posters */
   display: flex;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 1; /* Clean square bounding box */
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px; /* Breathing room for stickers inside their card container */
+  overflow: visible;
 }
 
 #slide-stickers .collage-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Never crop or distort the sticker shapes */
-  transition: transform 0.3s ease;
+  object-fit: contain; /* Fit stickers without cropping or distortion */
 }
+
+/* Overlapping rotations to create the stickers look - EXACTLY matching posters */
+#slide-stickers .collage-item.item-1 { transform: rotate(-4deg) translateY(10px); }
+#slide-stickers .collage-item.item-2 { transform: rotate(3deg) translateY(-5px); }
+#slide-stickers .collage-item.item-3 { transform: rotate(-2deg) translateY(5px); }
+#slide-stickers .collage-item.item-4 { transform: rotate(4deg) translateY(-10px); }
+#slide-stickers .collage-item.item-5 { transform: rotate(2deg) translateY(15px); }
+#slide-stickers .collage-item.item-6 { transform: rotate(-5deg) translateY(-8px); }
+#slide-stickers .collage-item.item-7 { transform: rotate(1deg) translateY(5px); }
+#slide-stickers .collage-item.item-8 { transform: rotate(-3deg) translateY(-12px); }
+#slide-stickers .collage-item.item-9 { transform: rotate(4deg) translateY(10px); }
+#slide-stickers .collage-item.item-10 { transform: rotate(-2deg) translateY(-6px); }
+#slide-stickers .collage-item.item-11 { transform: rotate(3deg) translateY(8px); }
+#slide-stickers .collage-item.item-12 { transform: rotate(-4deg) translateY(-10px); }
+#slide-stickers .collage-item.item-13 { transform: rotate(2deg) translateY(5px); }
+#slide-stickers .collage-item.item-14 { transform: rotate(-3deg) translateY(-8px); }
 
 #slide-stickers .collage-item:hover {
-  transform: translateY(-6px) scale(1.06); /* Clean linear hover elevation */
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(192, 132, 252, 0.4); /* Elegant purple glow */
-  border-color: rgba(192, 132, 252, 0.6);
+  transform: scale(1.18) rotate(0deg) !important;
   z-index: 10;
-}
-
-@media (max-width: 576px) {
-  .stickers-grid-collage {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns on small viewports for legibility */
-    gap: 8px;
-  }
+  box-shadow: 0 10px 30px rgba(192, 132, 252, 0.6);
 }
 
 @media (max-width: 991px) {
