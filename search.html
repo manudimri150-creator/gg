@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results | Kalaa Print & Pack</title>
+  <meta name="description" content="Search custom printing and packaging items on Kalaa Print & Pack. Find business cards, customized t-shirts, packaging boxes, and stickers.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('kalaa_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BANNER -->
+  <div class="promo-banner" role="region" aria-label="Announcement">
+    <div class="promo-text">
+      <span>✨ Playful Printing Magic! ➔ Order for ₹499 get 5% OFF! Use Code: <strong>KALAAPLAY5</strong> 🥳 &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; 🚀 Level Up! ➔ Order for ₹999 get 10% OFF! Use Code: <strong>PRINTWOW10</strong> 🎨 &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; 🌟 Ultimate Deal! ➔ Order for ₹1999 get 15% OFF! Use Code: <strong>PACKMAGIC15</strong> 💎</span>
+    </div>
+    <button class="promo-close" aria-label="Dismiss Banner">&times;</button>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header>
+    <div class="container header-container">
+      <div class="header-left">
+        <button class="nav-trigger" aria-label="Open Navigation Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span>Menu</span>
+        </button>
+        <div class="header-search-wrapper">
+          <button class="search-trigger" aria-label="Search Products">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Search</span>
+          </button>
+          <input type="text" class="header-search-input" placeholder="Search products..." aria-label="Search Input">
+          <button class="header-search-close" aria-label="Clear Search">&times;</button>
+          <div class="header-search-results"></div>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <a href="index.html" class="logo-link">
+          <span class="logo-kalaa">Kalaa</span><span class="logo-print-pack"> Print & Pack</span>
+        </a>
+      </div>
+
+      <div class="header-right">
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Dark Mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="22" height="22">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="22" height="22" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="account.html" class="account-link" aria-label="My Account">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Sign In</span>
+        </a>
+        <a href="cart.html" class="cart-link" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- MOBILE SLIDE-IN DRAWER -->
+  <div class="drawer-overlay"></div>
+  <div class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="drawer-header">
+      <span class="drawer-title">Explore Kalaa</span>
+      <button class="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <div class="drawer-content">
+      <ul class="drawer-menu-list" id="drawer-categories-list">
+        <!-- Categories loaded dynamically -->
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- SEARCH RESULTS PAGE BODY -->
+  <main class="container section-padding">
+    
+    <!-- Prominent Search Bar -->
+    <div style="max-width: 600px; margin: 0 auto var(--spacing-xl); text-align: center;">
+      <h1 class="section-title" style="margin-bottom:var(--spacing-md);">Search Products</h1>
+      <div class="email-form" style="max-width: 100%;">
+        <input type="search" id="page-search-input" placeholder="Search visiting cards, stamps, polo t-shirts..." aria-label="Search bar text">
+        <button class="btn btn-primary" id="btn-page-search">Search</button>
+      </div>
+      <div class="category-breadcrumbs" id="search-summary-text" style="margin-top:var(--spacing-md); text-align:center; font-size:14px; font-weight:500;">
+        Type above or select from recommendations to begin searching.
+      </div>
+    </div>
+
+    <!-- Recommendations (visible on empty or no-result) -->
+    <div id="no-results-suggestion" style="display:none; max-width:600px; margin: 0 auto var(--spacing-xl); text-align:center;">
+      <h3 style="font-size:15px; margin-bottom:var(--spacing-sm);">Popular Recommendations:</h3>
+      <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:var(--spacing-sm);">
+        <button class="search-tag rec-tag">Visiting Cards</button>
+        <button class="search-tag rec-tag">Polo T-shirts</button>
+        <button class="search-tag rec-tag">Labels</button>
+        <button class="search-tag rec-tag">Stickers</button>
+        <button class="search-tag rec-tag">Backpack</button>
+        <button class="search-tag rec-tag">Board</button>
+      </div>
+    </div>
+
+    <!-- Product results list -->
+    <div class="products-grid" id="search-results-grid">
+      <!-- Populated dynamically -->
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top-columns">
+        <div class="footer-column-info">
+          <h4>Contact info</h4>
+          <p class="contact-support-label">Support</p>
+          <p class="contact-mail">Mail : <strong>support@kalaaprintndpack.in</strong></p>
+        </div>
+        <div class="footer-column-links">
+          <h4>Quick links</h4>
+          <ul class="footer-links-list">
+            <li><a href="category.html">About Us</a></li>
+            <li><a href="account.html">Contact Us</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Cancellation and Shipping Policy</a></li>
+            <li><a href="#">Return & Refund Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-middle-subscribe">
+        <div class="subscribe-left">
+          <h4>Subscribe to our emails</h4>
+          <form class="footer-subscribe-form" action="#" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+            <div class="subscribe-input-wrapper">
+              <input type="email" placeholder="Email" required aria-label="Email address">
+              <button type="submit" aria-label="Subscribe">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="subscribe-right">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Follow us on Instagram">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <hr class="footer-divider">
+
+      <div class="footer-bottom-copyright">
+        <p>© 2026, Posterized · <a href="#">Refund policy</a> · <a href="#">Privacy policy</a> · <a href="#">Terms of service</a> · <a href="#">Shipping policy</a> · <a href="#">Contact information</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/core.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.KalaaData) return;
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get('q');
+
+      const pageInput = document.getElementById('page-search-input');
+      const searchBtn = document.getElementById('btn-page-search');
+      const summaryText = document.getElementById('search-summary-text');
+      const grid = document.getElementById('search-results-grid');
+      const suggestions = document.getElementById('no-results-suggestion');
+
+      if (query && pageInput) {
+        pageInput.value = query;
+        performSearch(query);
+      } else {
+        if (suggestions) suggestions.style.display = 'block';
+      }
+
+      if (searchBtn && pageInput) {
+        searchBtn.addEventListener('click', () => {
+          const val = pageInput.value.trim();
+          if (val) {
+            // Update URL query string
+            history.pushState(null, '', `search.html?q=${encodeURIComponent(val)}`);
+            performSearch(val);
+          }
+        });
+        
+        pageInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            const val = pageInput.value.trim();
+            if (val) {
+              history.pushState(null, '', `search.html?q=${encodeURIComponent(val)}`);
+              performSearch(val);
+            }
+          }
+        });
+      }
+
+      // Bind tags clicks
+      document.querySelectorAll('.rec-tag').forEach(tag => {
+        tag.addEventListener('click', (e) => {
+          const val = e.target.textContent;
+          if (pageInput) pageInput.value = val;
+          history.pushState(null, '', `search.html?q=${encodeURIComponent(val)}`);
+          performSearch(val);
+        });
+      });
+
+      function performSearch(qText) {
+        if (!grid || !summaryText) return;
+
+        const results = window.KalaaData.searchProducts(qText);
+        
+        if (results.length === 0) {
+          summaryText.innerHTML = `No results found matching "<strong>${qText}</strong>"`;
+          grid.innerHTML = '';
+          if (suggestions) suggestions.style.display = 'block';
+          return;
+        }
+
+        if (suggestions) suggestions.style.display = 'none';
+        summaryText.innerHTML = `Showing ${results.length} result(s) matching "<strong>${qText}</strong>"`;
+
+        grid.innerHTML = '';
+        results.forEach(prod => {
+          const card = document.createElement('a');
+          card.href = `product.html?id=${prod.id}`;
+          card.className = 'product-card';
+          card.innerHTML = `
+            ${prod.badge ? `<div class="product-badge">${prod.badge}</div>` : ''}
+            <div class="product-img-wrapper skeleton">
+              <img src="${prod.image}" alt="${prod.name}" loading="lazy" onload="this.parentElement.classList.remove('skeleton')">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">${prod.name}</h3>
+              <div class="product-price">Starting at <span>₹${prod.price}</span></div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

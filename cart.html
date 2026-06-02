@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Kalaa Print & Pack</title>
+  <meta name="description" content="View and manage items in your shopping cart. Review customized options, adjust quantities, apply promo codes, and proceed to secure checkout.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('kalaa_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BANNER -->
+  <div class="promo-banner" role="region" aria-label="Announcement">
+    <div class="promo-text">
+      <span>✨ Playful Printing Magic! ➔ Order for ₹499 get 5% OFF! Use Code: <strong>KALAAPLAY5</strong> 🥳 &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; 🚀 Level Up! ➔ Order for ₹999 get 10% OFF! Use Code: <strong>PRINTWOW10</strong> 🎨 &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; 🌟 Ultimate Deal! ➔ Order for ₹1999 get 15% OFF! Use Code: <strong>PACKMAGIC15</strong> 💎</span>
+    </div>
+    <button class="promo-close" aria-label="Dismiss Banner">&times;</button>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header>
+    <div class="container header-container">
+      <div class="header-left">
+        <button class="nav-trigger" aria-label="Open Navigation Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span>Menu</span>
+        </button>
+        <div class="header-search-wrapper">
+          <button class="search-trigger" aria-label="Search Products">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Search</span>
+          </button>
+          <input type="text" class="header-search-input" placeholder="Search products..." aria-label="Search Input">
+          <button class="header-search-close" aria-label="Clear Search">&times;</button>
+          <div class="header-search-results"></div>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <a href="index.html" class="logo-link">
+          <span class="logo-kalaa">Kalaa</span><span class="logo-print-pack"> Print & Pack</span>
+        </a>
+      </div>
+
+      <div class="header-right">
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Dark Mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="22" height="22">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="22" height="22" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="account.html" class="account-link" aria-label="My Account">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Sign In</span>
+        </a>
+        <a href="cart.html" class="cart-link" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- MOBILE SLIDE-IN DRAWER -->
+  <div class="drawer-overlay"></div>
+  <div class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="drawer-header">
+      <span class="drawer-title">Explore Kalaa</span>
+      <button class="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <div class="drawer-content">
+      <ul class="drawer-menu-list" id="drawer-categories-list">
+        <!-- Categories loaded dynamically -->
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- MAIN CART PAGE LAYOUT -->
+  <main class="container">
+    <h1 class="section-title" style="margin-top: var(--spacing-xl); margin-bottom: var(--spacing-md);">Your Shopping Cart</h1>
+    
+    <div class="cart-page-layout" id="cart-content-root">
+      
+      <!-- LEFT COLUMN: CART ITEMS LIST -->
+      <section class="cart-items-section" id="cart-items-container">
+        <!-- populated dynamically by cart-page.js -->
+        <p style="text-align: center; color: var(--text-muted);">Loading cart items...</p>
+      </section>
+
+      <!-- RIGHT COLUMN: ORDER SUMMARY SIDEBAR -->
+      <section class="cart-summary-sidebar" id="cart-summary-container">
+        <div class="summary-card">
+          <h2 class="summary-title">Order Summary</h2>
+          
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summary-subtotal">₹0.00</span>
+          </div>
+
+          <div class="summary-row" style="color: var(--success); display: none;" id="summary-discount-row">
+            <span>Discount (5% OFF)</span>
+            <span id="summary-discount">-₹0.00</span>
+          </div>
+
+          <div class="summary-row">
+            <span>GST (18%)</span>
+            <span id="summary-gst">₹0.00</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="summary-shipping">₹0.00</span>
+          </div>
+
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <span id="summary-total">₹0.00</span>
+          </div>
+
+          <!-- Promo Code Input -->
+          <div class="promo-code-input-group">
+            <input type="text" id="promo-input" placeholder="Promo Code (SAVE5)" aria-label="Promo code input">
+            <button class="btn btn-outline" id="btn-apply-promo" style="padding: 6px 16px; font-size:13px;">Apply</button>
+          </div>
+          <div class="promo-status" id="promo-status-msg"></div>
+
+          <!-- Checkout CTA Button -->
+          <button class="btn btn-primary btn-block btn-lg" id="btn-checkout" style="margin-top: var(--spacing-lg);">Proceed to Checkout</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- EMPTY CART SCREEN -->
+    <div class="cart-empty-message" id="cart-empty-root" style="display: none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+      <h2>Your Cart is Empty</h2>
+      <p style="color: var(--text-muted); margin-bottom: var(--spacing-lg); margin-top: var(--spacing-xs);">Looks like you haven't added any customized products to your cart yet.</p>
+      <a href="category.html" class="btn btn-primary btn-lg">Explore Catalog</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top-columns">
+        <div class="footer-column-info">
+          <h4>Contact info</h4>
+          <p class="contact-support-label">Support</p>
+          <p class="contact-mail">Mail : <strong>support@kalaaprintndpack.in</strong></p>
+        </div>
+        <div class="footer-column-links">
+          <h4>Quick links</h4>
+          <ul class="footer-links-list">
+            <li><a href="category.html">About Us</a></li>
+            <li><a href="account.html">Contact Us</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Cancellation and Shipping Policy</a></li>
+            <li><a href="#">Return & Refund Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-middle-subscribe">
+        <div class="subscribe-left">
+          <h4>Subscribe to our emails</h4>
+          <form class="footer-subscribe-form" action="#" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+            <div class="subscribe-input-wrapper">
+              <input type="email" placeholder="Email" required aria-label="Email address">
+              <button type="submit" aria-label="Subscribe">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="subscribe-right">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Follow us on Instagram">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <hr class="footer-divider">
+
+      <div class="footer-bottom-copyright">
+        <p>© 2026, Posterized · <a href="#">Refund policy</a> · <a href="#">Privacy policy</a> · <a href="#">Terms of service</a> · <a href="#">Shipping policy</a> · <a href="#">Contact information</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/cart-page.js"></script>
+</body>
+</html>
