@@ -85,7 +85,28 @@ function initNavDrawer() {
       const categoryProducts = window.KalaaData.PRODUCTS.filter(p => p.category === cat.id);
       
       let submenuHtml = '';
-      if (categoryProducts.length > 0) {
+      if (cat.subCategories && cat.subCategories.length > 0) {
+        // Group by subcategory
+        submenuHtml = `
+          <div class="drawer-submenu grouped-submenu">
+            ${cat.subCategories.map(sub => {
+              const subProducts = categoryProducts.filter(p => p.subCategory === sub.id);
+              if (subProducts.length === 0) return '';
+              return `
+                <div class="submenu-group">
+                  <div class="submenu-group-title">${sub.name}</div>
+                  <div class="submenu-group-items">
+                    ${subProducts.map(prod => `
+                      <a href="product.html?id=${prod.id}">${prod.name}</a>
+                    `).join('')}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      } else if (categoryProducts.length > 0) {
+        // Flat list
         submenuHtml = `
           <div class="drawer-submenu">
             ${categoryProducts.map(prod => `

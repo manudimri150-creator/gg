@@ -197,7 +197,7 @@
                 </div>
                 
                 <div class="slide-ctas">
-                  <a href="category.html?category=posters-signs" class="btn btn-shop-slide">
+                  <a href="category.html?category=posters" class="btn btn-shop-slide">
                     <span>Shop Posters</span>
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
@@ -317,7 +317,7 @@
                 </div>
                 
                 <div class="slide-ctas">
-                  <a href="category.html?category=photo-prints" class="btn btn-shop-slide">
+                  <a href="category.html?category=gifting" class="btn btn-shop-slide">
                     <span>Shop Photo Prints</span>
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
@@ -436,12 +436,12 @@
     <section class="dual-promo" aria-label="Special Offers">
       <div class="promo-half promo-half-left">
         <div class="promo-half-content">
-          <h3 class="promo-half-title">Stamps and Ink & Stationary</h3>
+          <h3 class="promo-half-title">Stamps and Ink & Stationery</h3>
           <p class="promo-half-subline">Pre-inked stamps, seals, and ink pads starting at ₹249</p>
           <div class="promo-half-ctas">
             <a href="category.html?category=stamps-ink" class="btn btn-outline-white">Stamps & Ink</a>
             <a href="product.html?id=letterheads" class="btn btn-outline-white">LetterHead</a>
-            <a href="product.html?id=envelopes" class="btn btn-outline-white">Envelops</a>
+            <a href="product.html?id=envelopes" class="btn btn-outline-white">Envelopes</a>
           </div>
         </div>
       </div>
@@ -449,11 +449,11 @@
       <div class="promo-half promo-half-right">
         <div class="promo-half-content">
           <h3 class="promo-half-title">Stickers & Labels & Packaging</h3>
-          <p class="promo-half-subline">Custom die-cut stickers and packaging tapes starting at ₹99</p>
+          <p class="promo-half-subline">Custom die-cut stickers and packaging labels starting at ₹99</p>
           <div class="promo-half-ctas">
-            <a href="product.html?id=stickers" class="btn btn-outline-white">Custom Stickers</a>
-            <a href="product.html?id=self-adhesive-tapes" class="btn btn-outline-white">Packaging Tapes</a>
-            <a href="category.html?category=labels-stickers-packaging" class="btn btn-outline-white">View All</a>
+            <a href="product.html?id=sheet-stickers" class="btn btn-outline-white">Custom Stickers</a>
+            <a href="product.html?id=clothing-tags" class="btn btn-outline-white">Clothing Tags</a>
+            <a href="category.html?category=stickers-labels" class="btn btn-outline-white">View All</a>
           </div>
         </div>
       </div>
@@ -625,7 +625,7 @@
       if (popTrack) {
         popTrack.innerHTML = '';
         const popProds = data.PRODUCTS.filter(p => [
-          'std-visiting-cards', 'round-visiting-cards', 'letterheads', 'envelopes', 'self-inking-stamps', 'stickers'
+          'business-cards', 'premium-visiting-cards', 'letterheads', 'envelopes', 'self-inking-stamps', 'sheet-stickers'
         ].includes(p.id));
         popProds.forEach(prod => popTrack.appendChild(createProductCard(prod)));
       }
@@ -635,7 +635,7 @@
       if (trendTrack) {
         trendTrack.innerHTML = '';
         const trendProds = data.PRODUCTS.filter(p => [
-          'classic-visiting-cards', 'spot-uv-visiting-cards', 'flyers', 'sheet-stickers', 'posters', 'roll-banners'
+          'business-cards', 'premium-visiting-cards', 'flyers', 'sheet-stickers', 'posters-cars', 'retro-prints'
         ].includes(p.id));
         trendProds.forEach(prod => trendTrack.appendChild(createProductCard(prod)));
       }
@@ -652,7 +652,7 @@
       const postersTrack = document.getElementById('posters-carousel-track');
       if (postersTrack) {
         postersTrack.innerHTML = '';
-        const postersProds = data.PRODUCTS.filter(p => p.category === 'posters-signs');
+        const postersProds = data.PRODUCTS.filter(p => p.category === 'posters');
         postersProds.slice(0, 8).forEach(prod => postersTrack.appendChild(createProductCard(prod)));
       }
 
@@ -669,7 +669,7 @@
       if (newTrack) {
         newTrack.innerHTML = '';
         const newProds = data.PRODUCTS.filter(p => [
-          'self-inking-stamps', 'brochures', 'transline-board', 'lollipop-board', 'acrylic-signs', 'canopy-tents'
+          'self-inking-stamps', 'brochures', 'backlit-transline', 'nfc-cards', 'clothing-tags', 'event-tickets'
         ].includes(p.id));
         newProds.forEach(prod => newTrack.appendChild(createProductCard(prod)));
       }

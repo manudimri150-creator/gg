@@ -172,11 +172,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (catId === 'visiting-cards') {
+    const shapesList = products.filter(p => p.subCategory === 'shapes');
+    const papersList = products.filter(p => p.subCategory === 'papers-textures');
+
+    if (catId === 'visiting-cards' && (shapesList.length > 0 || papersList.length > 0)) {
       grid.className = 'visiting-cards-container';
       
-      const shapes = products.filter(p => p.subCategory === 'shapes');
-      const papers = products.filter(p => p.subCategory === 'papers-textures');
+      const shapes = shapesList;
+      const papers = papersList;
       
       const favorites = JSON.parse(localStorage.getItem('kalaa_favorites') || '[]');
 

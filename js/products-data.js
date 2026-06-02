@@ -1,1134 +1,861 @@
 // Kalaa Print & Pack Mock Product Database
 
 const CATEGORIES = [
-  { id: "visiting-cards", name: "Visiting Cards", image: "https://images.unsplash.com/photo-1596495578065-6e0763fa1141?q=80&w=150" },
-  { id: "stationery-letterheads-notebooks", name: "Stationary", image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=150" },
-  { id: "stamps-ink", name: "Stamps and Ink", image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=150" },
-  { id: "posters-signs", name: "Posters", image: "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=150" },
-  { id: "stickers-labels", name: "Stickers & Labels", image: "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=150" },
-  { id: "gifting", name: "Custom Gifting", image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=150" }
+  {
+    "id": "visiting-cards",
+    "name": "📇 Visiting Cards",
+    "image": "https://images.unsplash.com/photo-1596495578065-6e0763fa1141?q=80&w=150"
+  },
+  {
+    "id": "stationery",
+    "name": "📝 Stationery",
+    "image": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=150",
+    "subCategories": [
+      { "id": "paper-products", "name": "Paper Products" },
+      { "id": "packaging-tags", "name": "Packaging & Tags" },
+      { "id": "business-essentials", "name": "Business Essentials" }
+    ]
+  },
+  {
+    "id": "stamps-ink",
+    "name": "🖋️ Stamps and Ink",
+    "image": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=150"
+  },
+  {
+    "id": "posters",
+    "name": "🖼️ Posters",
+    "image": "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=150",
+    "subCategories": [
+      { "id": "posters-cars", "name": "Velocity & Pistons (Cars)" },
+      { "id": "posters-bikes", "name": "Two-Wheel Beasts (Bikes)" },
+      { "id": "posters-sports", "name": "Championship Legends (Sports)" },
+      { "id": "posters-pop", "name": "Fandom & Pop Cult (Multiverse)" },
+      { "id": "posters-split", "name": "Grid Canvas (Split Frames)" },
+      { "id": "posters-custom", "name": "Design Studio (Custom Prints)" },
+      { "id": "posters-backlit", "name": "Backlit Transline Board" }
+    ]
+  },
+  {
+    "id": "stickers-labels",
+    "name": "🏷️ Stickers & Labels",
+    "image": "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=150"
+  },
+  {
+    "id": "gifting",
+    "name": "🎁 Custom Gifting",
+    "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=150"
+  },
+  {
+    "id": "event-marketing",
+    "name": "🎟️ Event & Marketing",
+    "image": "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=150"
+  }
 ];
 
 const PRODUCTS = [
-  // --- VISITING CARDS ---
+  # --- VISITING CARDS ---
   {
-    id: "std-visiting-cards",
-    name: "Standard Visiting Cards",
-    category: "visiting-cards",
-    subCategory: "shapes",
-    price: 200,
-    badge: "BUY 100 @ ₹200",
-    image: "https://images.unsplash.com/photo-1596495578065-6e0763fa1141?q=80&w=300",
-    description: "Make a strong first impression with high-quality standard visiting cards. Choose from matte or glossy finishes on durable paper stocks.",
-    rating: 4.6,
-    ratingCount: 1362,
-    deliveryText: "Same Day Delivery - Mumbai, Bengaluru & Hyderabad",
-    subpriceText: "₹2.00 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "350 GSM Premium Matte/Gloss Paper",
-      "Print Quality": "HD Offset & Digital Printing",
-      "Production Time": "2-3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.2 },
-        { label: "500 units", value: 500, priceMultiplier: 4.0 },
-        { label: "1000 units", value: 1000, priceMultiplier: 7.2 }
-      ],
-      paper: [
-        { label: "Standard Matte (300 GSM)", value: "std-matte", extraCost: 0 },
-        { label: "Premium Matte (350 GSM)", value: "prem-matte", extraCost: 50 },
-        { label: "Premium Glossy (350 GSM)", value: "prem-glossy", extraCost: 60 }
-      ],
-      finish: [
-        { label: "No Extra Coating", value: "none", extraCost: 0 },
-        { label: "Spot UV Coat (Front)", value: "spot-uv", extraCost: 100 }
-      ]
+    "id": "business-cards",
+    "name": "Business Cards",
+    "category": "visiting-cards",
+    "price": 199,
+    "badge": "Best Seller",
+    "image": "https://images.unsplash.com/photo-1596495578065-6e0763fa1141?q=80&w=300",
+    "description": "Professional business cards to network with confidence. Matte or glossy options.",
+    "specifications": { "Size": "89 x 54 mm", "Material": "350 GSM Art Card", "Print": "Double Sided" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Matte", "value": "standard-matte", "extraCost": 0 }, { "label": "Premium Matte", "value": "premium-matte", "extraCost": 50 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "classic-visiting-cards",
-    name: "Classic Visiting Cards",
-    category: "visiting-cards",
-    subCategory: "shapes",
-    price: 230,
-    badge: "100 @ ₹230",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=300",
-    description: "The time-tested networking essential. Light, clean, and professional classic visiting cards.",
-    rating: 4.6,
-    ratingCount: 209,
-    deliveryText: "Same Day Delivery - Mumbai, Hyderabad, Kolkata & Bengaluru",
-    subpriceText: "₹2.30 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "300 GSM Art Card",
-      "Print Quality": "Standard Digital Print",
-      "Production Time": "1-2 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "500 units", value: 500, priceMultiplier: 4.2 }
-      ],
-      paper: [
-        { label: "300 GSM Art Card", value: "art-300", extraCost: 0 }
-      ],
-      finish: [
-        { label: "No Extra Coating", value: "none", extraCost: 0 }
-      ]
+    "id": "premium-visiting-cards",
+    "name": "Premium Business Cards",
+    "category": "visiting-cards",
+    "price": 299,
+    "badge": "Premium 💎",
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=300",
+    "description": "Executive-grade cards with premium textured finishes and thick card stocks.",
+    "specifications": { "Size": "89 x 54 mm", "Material": "400 GSM Royal Fine Paper", "Print": "Double Sided" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Velvet Touch", "value": "velvet-touch", "extraCost": 0 }, { "label": "Linen Textured", "value": "linen-textured", "extraCost": 80 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "round-visiting-cards",
-    name: "Rounded Corner Visiting Cards",
-    category: "visiting-cards",
-    subCategory: "shapes",
-    price: 250,
-    badge: "BUY 100 @ ₹250",
-    image: "https://images.unsplash.com/photo-1589758438368-0ad531db3366?q=80&w=300",
-    description: "Add a modern touch to your corporate network. Rounded corners offer a premium look and resist bending.",
-    rating: 4.5,
-    ratingCount: 478,
-    deliveryText: "Same Day Delivery - Mumbai",
-    subpriceText: "₹2.50 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm (6mm corner radius)",
-      "Material": "350 GSM Soft Touch paper",
-      "Print Quality": "Double-sided digital print",
-      "Production Time": "3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.1 },
-        { label: "500 units", value: 500, priceMultiplier: 3.8 }
-      ],
-      paper: [
-        { label: "Premium Matte (350 GSM)", value: "prem-matte", extraCost: 0 },
-        { label: "Premium Glossy (350 GSM)", value: "prem-glossy", extraCost: 10 }
-      ],
-      finish: [
-        { label: "Standard Gloss", value: "gloss", extraCost: 0 },
-        { label: "Spot UV Highlight", value: "spot-uv", extraCost: 80 }
-      ]
+    "id": "nfc-cards",
+    "name": "NFC Cards",
+    "category": "visiting-cards",
+    "price": 999,
+    "badge": "Smart Technology",
+    "image": "https://images.unsplash.com/photo-1589758438368-0ad531db3366?q=80&w=300",
+    "description": "Tap and share contact details instantly. Embedded NFC chip with custom print on surface.",
+    "specifications": { "Size": "Standard Credit Card", "Material": "Premium Matte PVC / Wood", "Technology": "NFC Chip NTAG213" },
+    "options": {
+      "quantity": [ { "label": "1 Card", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Cards", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Matte Black PVC", "value": "matte-black-pvc", "extraCost": 0 }, { "label": "Eco Wood Finish", "value": "eco-wood-finish", "extraCost": 200 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "glossy-visiting-cards",
-    name: "Glossy",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 200,
-    badge: "BUY 100 @ ₹200",
-    image: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=300",
-    description: "Premium glossy finish visiting cards that highlight colors and graphics with a shiny, reflective surface.",
-    rating: 4.7,
-    ratingCount: 123,
-    deliveryText: "Same Day Delivery - Mumbai, Bengaluru & Hyderabad",
-    subpriceText: "₹2.00 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "350 GSM Glossy Coated Art Paper",
-      "Print Quality": "High Definition Digital Offset",
-      "Production Time": "2-3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.2 },
-        { label: "500 units", value: 500, priceMultiplier: 4.0 }
-      ],
-      paper: [
-        { label: "Glossy Cardstock (350 GSM)", value: "glossy-350", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Gloss Varnish", value: "none", extraCost: 0 }
-      ]
+    "id": "qr-cards",
+    "name": "QR Cards",
+    "category": "visiting-cards",
+    "price": 249,
+    "badge": "Quick Connect",
+    "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=300",
+    "description": "Modern cards featuring a prominent custom QR code linked to your digital bio/portfolio.",
+    "specifications": { "Size": "89 x 54 mm", "Material": "350 GSM Matte", "Print": "QR Code Print included" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Matte", "value": "standard-matte", "extraCost": 0 }, { "label": "Recycled Kraft", "value": "recycled-kraft", "extraCost": 60 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "matte-visiting-cards",
-    name: "Matte",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 200,
-    badge: "BUY 100 @ ₹200",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=300",
-    description: "Classic matte finish visiting cards with a smooth, non-reflective texture that feels elegant to touch.",
-    rating: 4.4,
-    ratingCount: 174,
-    deliveryText: "Same Day Delivery - Mumbai, Bengaluru & Hyderabad",
-    subpriceText: "₹2.00 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "350 GSM Premium Matte Paper",
-      "Print Quality": "Offset & Laser Digital Printing",
-      "Production Time": "2-3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.2 },
-        { label: "500 units", value: 500, priceMultiplier: 4.0 }
-      ],
-      paper: [
-        { label: "Matte Cardstock (350 GSM)", value: "matte-350", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Matte Coating", value: "none", extraCost: 0 }
-      ]
+    "id": "appointment-cards",
+    "name": "Appointment Cards",
+    "category": "visiting-cards",
+    "price": 229,
+    "badge": "Utility",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=300",
+    "description": "Grid-back appointment cards. Perfect for clinics, salons, and consultants.",
+    "specifications": { "Size": "89 x 54 mm", "Material": "300 GSM Uncoated (Writeable)", "Print": "Writeable Grid on Back" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Super White Uncoated", "value": "super-white-uncoated", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "non-tearable-visiting-cards",
-    name: "Non-Tearable",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 370,
-    badge: "NEW OPTIONS",
-    image: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=300",
-    description: "Waterproof and tear-resistant visiting cards designed to survive rough handling while maintaining clarity.",
-    rating: 4.4,
-    ratingCount: 46,
-    deliveryText: "",
-    subpriceText: "₹3.70 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "Non-Tearable Synthetic Polymer",
-      "Features": "Waterproof, Stainproof, Tear-resistant",
-      "Production Time": "3-4 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.1 },
-        { label: "500 units", value: 500, priceMultiplier: 3.8 }
-      ],
-      paper: [
-        { label: "Premium Synthetic Polymer (250 Microns)", value: "synthetic", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Standard Finish", value: "none", extraCost: 0 }
-      ]
-    }
-  },
-  {
-    id: "spot-uv-visiting-cards",
-    name: "Spot UV",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 590,
-    badge: "BUY 100 @ ₹590",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=300",
-    description: "Draw eyes to your logo with spot UV varnishing that creates an elegant raised glossy finish on selected card sections.",
-    rating: 4.2,
-    ratingCount: 95,
-    deliveryText: "",
-    subpriceText: "₹5.90 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "350 GSM Matte Board with Spot Gloss",
-      "Feel": "Contrast tactile texture",
-      "Production Time": "4 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.2 }
-      ],
-      paper: [
-        { label: "350 GSM Luxury Board", value: "luxury-350", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Spot UV Coating (1 Side)", value: "uv-1s", extraCost: 0 },
-        { label: "Spot UV Coating (Both Sides)", value: "uv-2s", extraCost: 120 }
-      ]
-    }
-  },
-  {
-    id: "raised-foil-visiting-cards",
-    name: "Raised Foil Visiting Cards",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 900,
-    badge: "BUY 100 @ ₹900",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=300",
-    description: "Stunning metallic foil accents lifted above the surface of the card for a luxury touch you can feel.",
-    rating: 4.8,
-    ratingCount: 12,
-    deliveryText: "",
-    subpriceText: "₹9.00 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "350 GSM Velvet Matte Cardstock",
-      "Finish": "Metallic Foil (Gold/Silver) in Raised Layer",
-      "Production Time": "5 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.2 }
-      ],
-      paper: [
-        { label: "Premium Velvet Board (350 GSM)", value: "velvet-350", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Raised Gold Foil", value: "gold-foil", extraCost: 0 },
-        { label: "Raised Silver Foil", value: "silver-foil", extraCost: 0 }
-      ]
-    }
-  },
-  {
-    id: "prem-plus-glossy-visiting-cards",
-    name: "Premium Plus Glossy",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 290,
-    badge: "BUY 100 @ ₹290",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=300",
-    description: "Extra thick cards featuring a glossy finish that emphasizes depth of color and provides maximum stiffness.",
-    rating: 4.2,
-    ratingCount: 108,
-    deliveryText: "",
-    subpriceText: "₹2.90 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "400 GSM Ultra-Thick Glossy Board",
-      "Print Quality": "Superior High Gloss & Vibrant Inks",
-      "Production Time": "3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.2 },
-        { label: "500 units", value: 500, priceMultiplier: 4.0 }
-      ],
-      paper: [
-        { label: "Premium Plus Gloss Cardstock (400 GSM)", value: "plus-gloss", extraCost: 0 }
-      ],
-      finish: [
-        { label: "High Shine Coating", value: "none", extraCost: 0 }
-      ]
-    }
-  },
-  {
-    id: "transparent-visiting-cards",
-    name: "Transparent",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 1000,
-    badge: "BUY 100 @ ₹1000",
-    image: "https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?q=80&w=300",
-    description: "Stand out with semi-frost or clear transparent polymer cards. Sleek, innovative, and memorable.",
-    rating: 3.4,
-    ratingCount: 20,
-    deliveryText: "",
-    subpriceText: "₹10.00 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "0.3mm Clear/Frosted PVC Polymer",
-      "Print style": "Single sided, transparent friendly overlay",
-      "Production Time": "5-6 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.2 }
-      ],
-      paper: [
-        { label: "Clear Transparent PVC", value: "clear-pvc", extraCost: 0 },
-        { label: "Frosted Translucent PVC", value: "frosted-pvc", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Standard Translucent Inks", value: "cmyk", extraCost: 0 },
-        { label: "White Ink Underlay (Opaque sections)", value: "white-ink", extraCost: 150 }
-      ]
-    }
-  },
-  {
-    id: "bulk-visiting-cards",
-    name: "Bulk Visiting Cards",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 1500,
-    badge: "BUY 1500 @ ₹1500",
-    image: "https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=300",
-    description: "High-volume visiting cards printed on standard cardstock, perfect for large offices and events.",
-    rating: 4.5,
-    ratingCount: 82,
-    deliveryText: "Same Day Delivery - Mumbai",
-    subpriceText: "₹1.00 each / 1500 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "280 GSM Standard Art Card",
-      "Best For": "Large corporate rollouts, conference hand outs",
-      "Production Time": "3-4 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1500 units", value: 1500, priceMultiplier: 1.0 },
-        { label: "3000 units", value: 3000, priceMultiplier: 1.9 },
-        { label: "5000 units", value: 5000, priceMultiplier: 3.0 }
-      ],
-      paper: [
-        { label: "Standard Art Card (280 GSM)", value: "std-art", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Uncoated Finish", value: "none", extraCost: 0 }
-      ]
-    }
-  },
-  {
-    id: "velvet-touch-visiting-cards",
-    name: "Velvet Touch",
-    category: "visiting-cards",
-    subCategory: "papers-textures",
-    price: 300,
-    badge: "BUY 100 @ ₹300",
-    image: "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?q=80&w=300",
-    description: "Suede-like soft touch lamination that gives your card an incredibly smooth, velvet-like premium feel.",
-    rating: 4.3,
-    ratingCount: 126,
-    deliveryText: "",
-    subpriceText: "₹3.00 each / 100 units",
-    specifications: {
-      "Dimensions": "89 mm x 54 mm",
-      "Material": "350 GSM Art Board",
-      "Lamination": "Premium Double-Sided Velvet/Soft-Touch Matte",
-      "Production Time": "3-4 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 units", value: 100, priceMultiplier: 1.0 },
-        { label: "250 units", value: 250, priceMultiplier: 2.2 },
-        { label: "500 units", value: 500, priceMultiplier: 4.0 }
-      ],
-      paper: [
-        { label: "Premium Art Board (350 GSM)", value: "art-350", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Velvet Lamination", value: "velvet-lam", extraCost: 0 }
-      ]
+    "id": "loyalty-cards",
+    "name": "Loyalty Cards",
+    "category": "visiting-cards",
+    "price": 239,
+    "badge": "Customer Loyalty",
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1d704d3?q=80&w=300",
+    "description": "Keep customers returning with custom stamp grid loyalty cards.",
+    "specifications": { "Size": "89 x 54 mm", "Material": "300 GSM Matte Uncoated", "Print": "10-Stamp Grid Backing" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Stampable Bond Paper", "value": "stampable-bond-paper", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
 
-  // --- STATIONERY, LETTERHEADS & NOTEBOOKS ---
+  # --- STATIONERY - PAPER PRODUCTS ---
   {
-    id: "letterheads",
-    name: "LetterHead",
-    category: "stationery-letterheads-notebooks",
-    price: 450,
-    badge: "BUY 50 @ ₹450",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=300",
-    description: "Print official company communications on executive-grade letterheads. Standard A4 size compatible with office printers.",
-    specifications: {
-      "Dimensions": "A4 Standard (210 x 297 mm)",
-      "Material": "100 GSM Alabaster Bond / 120 GSM Royal Executive",
-      "Laser Friendly": "Yes, print-ready",
-      "Production Time": "2-3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "50 units", value: 50, priceMultiplier: 1.0 },
-        { label: "100 units", value: 100, priceMultiplier: 1.8 },
-        { label: "500 units", value: 500, priceMultiplier: 7.0 }
-      ],
-      paper: [
-        { label: "100 GSM Bond Paper", value: "bond-100", extraCost: 0 },
-        { label: "120 GSM Luxury Laid Paper", value: "laid-120", extraCost: 100 }
-      ],
-      finish: [
-        { label: "Uncoated (Writeable)", value: "none", extraCost: 0 }
-      ]
+    "id": "thank-you-cards",
+    "name": "Thank You Cards",
+    "category": "stationery",
+    "subCategory": "paper-products",
+    "price": 199,
+    "badge": "Handwritten Vibe",
+    "image": "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?q=80&w=300",
+    "description": "Express gratitude in style. Beautifully custom printed mini-cards for customer orders.",
+    "specifications": { "Size": "3.5\" x 2\" Mini", "Material": "300 GSM Natural Matte", "Print": "Double Sided" },
+    "options": {
+      "quantity": [ { "label": "50 units", "value": 50, "priceMultiplier": 1.0 }, { "label": "200 units", "value": 200, "priceMultiplier": 3.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "envelopes",
-    name: "Envelops",
-    category: "stationery-letterheads-notebooks",
-    price: 150,
-    badge: "Starting at ₹150",
-    image: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=300",
-    description: "Premium customized corporate envelopes. Available in standard office sizes with secure self-adhesive seal flaps.",
-    specifications: {
-      "Size": "9.5\" x 4.5\" (Office Standard)",
-      "Material": "120 GSM Luxury Bond Paper",
-      "Seal Type": "Peel & Seal Adhesive Flap",
-      "Production Time": "2-3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "50 Envelops", value: 50, priceMultiplier: 1.0 },
-        { label: "100 Envelops", value: 100, priceMultiplier: 1.8 },
-        { label: "500 Envelops", value: 500, priceMultiplier: 7.2 }
-      ],
-      paper: [
-        { label: "120 GSM Classic White Bond", value: "bond-120", extraCost: 0 },
-        { label: "130 GSM Recycled Kraft Paper", value: "kraft-130", extraCost: 20 }
-      ],
-      finish: [
-        { label: "Single Sided Custom Printing", value: "print-single", extraCost: 0 }
-      ]
+    "id": "invitation-cards",
+    "name": "Invitation Cards",
+    "category": "stationery",
+    "subCategory": "paper-products",
+    "price": 499,
+    "badge": "Events & Weddings",
+    "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=300",
+    "description": "Invite guests to your corporate events, gallery launches, or private parties.",
+    "specifications": { "Size": "5\" x 7\" Folded", "Material": "300 GSM Luxury Textured", "Envelopes": "Included" },
+    "options": {
+      "quantity": [ { "label": "25 units", "value": 25, "priceMultiplier": 1.0 }, { "label": "100 units", "value": 100, "priceMultiplier": 3.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "certificates",
-    name: "Certificates",
-    category: "stationery-letterheads-notebooks",
-    price: 250,
-    badge: "Starting at ₹250",
-    image: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=300",
-    description: "Elegant award and participation certificates printed on premium textured heavy-weight paper stocks. Perfect for corporate events, schools, and workshops.",
-    specifications: {
-      "Size": "A4 Standard (210 x 297 mm)",
-      "Material": "300 GSM Textured Off-White Paper",
-      "Border Details": "Elegant Custom Boarders",
-      "Production Time": "2 business days"
-    },
-    options: {
-      quantity: [
-        { label: "10 Certificates", value: 10, priceMultiplier: 1.0 },
-        { label: "50 Certificates", value: 50, priceMultiplier: 4.0 },
-        { label: "100 Certificates", value: 100, priceMultiplier: 7.5 }
-      ],
-      paper: [
-        { label: "300 GSM Textured Card Stock", value: "textured-300", extraCost: 0 },
-        { label: "350 GSM Pearl Metallic Stock", value: "pearl-350", extraCost: 50 }
-      ],
-      finish: [
-        { label: "Standard Digital Print", value: "digital", extraCost: 0 },
-        { label: "Gold Foil Accents", value: "gold-foil", extraCost: 150 }
-      ]
+    "id": "menu-cards",
+    "name": "Menu Cards",
+    "category": "stationery",
+    "subCategory": "paper-products",
+    "price": 399,
+    "badge": "Food & Dine",
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=300",
+    "description": "Vibrant menus for restaurants, hotels, and banquets. Clean and splash-resistant.",
+    "specifications": { "Size": "A4 Folded or DL Sheet", "Material": "350 GSM Gloss with Coating", "Print": "High Resolution Offset" },
+    "options": {
+      "quantity": [ { "label": "20 units", "value": 20, "priceMultiplier": 1.0 }, { "label": "100 units", "value": 100, "priceMultiplier": 3.8 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "booklets",
-    name: "Booklets",
-    category: "stationery-letterheads-notebooks",
-    price: 650,
-    badge: "Starting at ₹650",
-    image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=300",
-    description: "Product user guides, company profiles, and brochures bound professionally. Stapled or wire-bound bindings.",
-    specifications: {
-      "Binding": "Saddle-stitch (Stapled)",
-      "Page Count": "8 to 32 pages",
-      "Paper Cover": "250 GSM Gloss Cover",
-      "Production Time": "5 business days"
-    },
-    options: {
-      quantity: [
-        { label: "10 Booklets", value: 10, priceMultiplier: 1.0 },
-        { label: "50 Booklets", value: 50, priceMultiplier: 4.5 }
-      ],
-      paper: [
-        { label: "8 Pages (130 GSM inner)", value: "8p", extraCost: 0 },
-        { label: "16 Pages (130 GSM inner)", value: "16p", extraCost: 150 },
-        { label: "24 Pages (130 GSM inner)", value: "24p", extraCost: 300 }
-      ],
-      finish: [
-        { label: "Standard Staple Bound", value: "staple", extraCost: 0 },
-        { label: "Spiral Coil Bound", value: "spiral", extraCost: 50 }
-      ]
+    "id": "flyers",
+    "name": "Flyers",
+    "category": "stationery",
+    "subCategory": "paper-products",
+    "price": 120,
+    "badge": "Mass Marketing",
+    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=300",
+    "description": "Promote deals and local events with affordable, lightweight single sheet flyers.",
+    "specifications": { "Size": "A5 Sheet", "Material": "130 GSM Gloss Art Paper", "Print": "Single/Double Sided" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Single-Sided Print", "value": "single-sided-print", "extraCost": 0 }, { "label": "Double-Sided Print", "value": "double-sided-print", "extraCost": 30 } ]
     }
   },
   {
-    id: "brochures",
-    name: "Brouchers",
-    category: "stationery-letterheads-notebooks",
-    price: 350,
-    badge: "Starting at ₹350",
-    image: "https://images.unsplash.com/photo-1561070791-26c113006238?q=80&w=300",
-    description: "Premium bi-fold and tri-fold marketing brochures to showcase your business offerings. High definition color prints on smooth glossy paper.",
-    specifications: {
-      "Size": "A4 Folded to A5 or DL",
-      "Material": "170 GSM Art Paper",
-      "Fold Type": "Bi-fold / Tri-fold / Z-fold",
-      "Production Time": "3-4 business days"
-    },
-    options: {
-      quantity: [
-        { label: "50 Brouchers", value: 50, priceMultiplier: 1.0 },
-        { label: "100 Brouchers", value: 100, priceMultiplier: 1.8 },
-        { label: "500 Brouchers", value: 500, priceMultiplier: 7.0 }
-      ],
-      paper: [
-        { label: "170 GSM Glossy Art Paper", value: "gloss-170", extraCost: 0 },
-        { label: "250 GSM Premium Matte Paper", value: "matte-250", extraCost: 40 }
-      ],
-      finish: [
-        { label: "Standard Machine Fold", value: "fold", extraCost: 0 }
-      ]
+    "id": "brochures",
+    "name": "Brouchers",
+    "category": "stationery",
+    "subCategory": "paper-products",
+    "price": 350,
+    "badge": "Classy Folds",
+    "image": "https://images.unsplash.com/photo-1561070791-26c113006238?q=80&w=300",
+    "description": "Custom bi-fold and tri-fold brochures to showcase your business offerings.",
+    "specifications": { "Size": "A4 Folded to DL / A5", "Material": "170 GSM Premium Paper", "Folds": "Bi-fold / Tri-fold" },
+    "options": {
+      "quantity": [ { "label": "50 units", "value": 50, "priceMultiplier": 1.0 }, { "label": "200 units", "value": 200, "priceMultiplier": 3.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "flyers",
-    name: "Flyers",
-    category: "stationery-letterheads-notebooks",
-    price: 120,
-    badge: "Starting at ₹120",
-    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=300",
-    description: "Vibrant custom promotional flyers. Ideal for mass distribution, menus, event announcements, and local marketing campaigns.",
-    specifications: {
-      "Size": "A5 Standard (148 x 210 mm)",
-      "Material": "130 GSM Gloss Art Paper",
-      "Print Sides": "Single or Double-sided",
-      "Production Time": "1-2 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 Flyers", value: 100, priceMultiplier: 1.0 },
-        { label: "500 Flyers", value: 500, priceMultiplier: 4.0 },
-        { label: "1000 Flyers", value: 1000, priceMultiplier: 7.0 }
-      ],
-      paper: [
-        { label: "130 GSM Glossy Paper", value: "gloss-130", extraCost: 0 },
-        { label: "170 GSM Premium Glossy", value: "gloss-170", extraCost: 20 }
-      ],
-      finish: [
-        { label: "Single-Sided Print", value: "single", extraCost: 0 },
-        { label: "Double-Sided Print", value: "double", extraCost: 30 }
-      ]
+    "id": "bookmarks",
+    "name": "Bookmarks",
+    "category": "stationery",
+    "subCategory": "paper-products",
+    "price": 99,
+    "badge": "For Readers",
+    "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300",
+    "description": "Custom printed bookmarks with protective gloss or matte lamination.",
+    "specifications": { "Size": "2\" x 6\"", "Material": "350 GSM Extra Rigid Paper", "Lamination": "Double Sided" },
+    "options": {
+      "quantity": [ { "label": "10 units", "value": 10, "priceMultiplier": 1.0 }, { "label": "50 units", "value": 50, "priceMultiplier": 4.0 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "certificates",
+    "name": "Certificates",
+    "category": "stationery",
+    "subCategory": "paper-products",
+    "price": 250,
+    "badge": "Awards & Degrees",
+    "image": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=300",
+    "description": "Print elegant achievement and course certificates with rich textured patterns.",
+    "specifications": { "Size": "A4 Landscape", "Material": "300 GSM Heavy Card Stock", "Texture": "Laid / Linen" },
+    "options": {
+      "quantity": [ { "label": "10 units", "value": 10, "priceMultiplier": 1.0 }, { "label": "50 units", "value": 50, "priceMultiplier": 4.0 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Print", "value": "standard-print", "extraCost": 0 }, { "label": "Gold Foil Accent", "value": "gold-foil-accent", "extraCost": 150 } ]
     }
   },
 
-  // --- STAMPS AND INK ---
+  # --- STATIONERY - PACKAGING & TAGS ---
   {
-    id: "self-inking-stamps",
-    name: "Custom Self-Inking Stamps",
-    category: "stamps-ink",
-    price: 299,
-    badge: "Starting at ₹299",
-    image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=300",
-    description: "High-durability custom self-inking rubber stamps. Choose from round, rectangular, or pocket sizes with blue, black, or red ink.",
-    specifications: {
-      "Stamp Type": "Self-Inking Rubber Stamp",
-      "Ink Colors": "Black, Blue, Red",
-      "Durability": "Up to 10,000 impressions before refill",
-      "Production Time": "1-2 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 unit", value: 1, priceMultiplier: 1.0 },
-        { label: "5 units", value: 5, priceMultiplier: 4.5 }
-      ],
-      paper: [
-        { label: "Rectangular (47 x 18 mm)", value: "rect-medium", extraCost: 0 },
-        { label: "Rectangular Large (58 x 22 mm)", value: "rect-large", extraCost: 100 },
-        { label: "Circular (40 mm Diameter)", value: "circular-medium", extraCost: 150 }
-      ],
-      finish: [
-        { label: "Blue Ink", value: "blue", extraCost: 0 },
-        { label: "Black Ink", value: "black", extraCost: 0 },
-        { label: "Red Ink", value: "red", extraCost: 0 }
-      ]
+    "id": "clothing-tags",
+    "name": "Clothing Tags",
+    "category": "stationery",
+    "subCategory": "packaging-tags",
+    "price": 249,
+    "badge": "Apparel Labels",
+    "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=300",
+    "description": "Custom cloth tags for garments. Complete with hole punch for string attach.",
+    "specifications": { "Size": "2\" x 3.5\"", "Material": "350 GSM Cardboard", "Punch Hole": "Round 3mm pre-cut" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "hang-tags",
+    "name": "Hang Tags",
+    "category": "stationery",
+    "subCategory": "packaging-tags",
+    "price": 259,
+    "badge": "Retail Essentials",
+    "image": "https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=300",
+    "description": "Versatile product hang tags for premium wrapping and retail branding details.",
+    "specifications": { "Size": "2\" x 2\" Square / Round", "Material": "300 GSM Matte Paper", "Punch": "Pre-punched center" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "price-tags",
+    "name": "Price Tags",
+    "category": "stationery",
+    "subCategory": "packaging-tags",
+    "price": 199,
+    "badge": "Retail Pricing",
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=300",
+    "description": "Clean price cards with grids on the back for barcode sticker or handwriting.",
+    "specifications": { "Size": "40 x 70 mm", "Material": "280 GSM Matte Uncoated", "Print": "Single Sided Layout" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "product-tags",
+    "name": "Product Tags",
+    "category": "stationery",
+    "subCategory": "packaging-tags",
+    "price": 269,
+    "badge": "Product Brand",
+    "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=300",
+    "description": "Attach premium branded product tags to bags, cups, artisanal items, and boxes.",
+    "specifications": { "Size": "50 x 80 mm", "Material": "350 GSM Soft Touch Silk paper", "Coating": "Matte Velvet" },
+    "options": {
+      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
 
-  // --- SIGNS & POSTERS ---
+  # --- STATIONERY - BUSINESS ESSENTIALS ---
   {
-    id: "posters",
-    name: "High-Gloss Custom Posters",
-    category: "posters-signs",
-    price: 120,
-    badge: "Starting at ₹120",
-    image: "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=300",
-    description: "Vibrant high-resolution wall posters for promotional campaigns, store displays, or interior decor.",
-    specifications: {
-      "Sizes": "A3 or A2 Portrait/Landscape",
-      "Material": "220 GSM High Gloss Photo Paper",
-      "Inks": "Vance 8-Color Pigment (Fade resistant)",
-      "Production Time": "2 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Poster", value: 1, priceMultiplier: 1.0 },
-        { label: "5 Posters", value: 5, priceMultiplier: 4.2 },
-        { label: "20 Posters", value: 20, priceMultiplier: 15.0 }
-      ],
-      paper: [
-        { label: "A3 Size (297 x 420 mm)", value: "a3", extraCost: 0 },
-        { label: "A2 Size (420 x 594 mm)", value: "a2", extraCost: 80 }
-      ],
-      finish: [
-        { label: "High Gloss finish", value: "gloss", extraCost: 0 },
-        { label: "Satin Matte finish", value: "matte", extraCost: 10 }
-      ]
+    "id": "letterheads",
+    "name": "Letterheads",
+    "category": "stationery",
+    "subCategory": "business-essentials",
+    "price": 450,
+    "badge": "Corporate Bond",
+    "image": "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=300",
+    "description": "Print official corporate correspondence on professional alabaster bond letterheads.",
+    "specifications": { "Size": "A4 Size", "Material": "100 GSM Executive Alabaster Bond", "Compatibility": "Inkjet & Laser friendly" },
+    "options": {
+      "quantity": [ { "label": "50 units", "value": 50, "priceMultiplier": 1.0 }, { "label": "200 units", "value": 200, "priceMultiplier": 3.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "transline-board",
-    name: "Backlit Transline Board",
-    category: "posters-signs",
-    price: 1500,
-    badge: "NEW ✨ Starting at ₹1,500",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=300",
-    description: "Translucent film prints customized for LED light boxes in showrooms, restaurants, and clinic menu panels.",
-    specifications: {
-      "Thickness": "220 Microns",
-      "Transparency": "Diffused backlit friendly",
-      "Inks": "UV cured print (Non-fade under LED)",
-      "Production Time": "3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Board Print", value: 1, priceMultiplier: 1.0 },
-        { label: "2 Board Prints", value: 2, priceMultiplier: 1.9 }
-      ],
-      paper: [
-        { label: "Standard Translite Film", value: "translite", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Gloss Translucent", value: "gloss", extraCost: 0 }
-      ]
+    "id": "notepads",
+    "name": "Notepads",
+    "category": "stationery",
+    "subCategory": "business-essentials",
+    "price": 149,
+    "badge": "Desk Pad",
+    "image": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=300",
+    "description": "Glue-bound custom printed notepads with tear-away pages. Perfect for daily notes.",
+    "specifications": { "Size": "A5 Size", "Pages": "50 Tear-off Sheets (80 GSM)", "Binding": "Padding Glue (Top)" },
+    "options": {
+      "quantity": [ { "label": "5 units", "value": 5, "priceMultiplier": 1.0 }, { "label": "25 units", "value": 25, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "lollipop-board",
-    name: "Circular Lollipop Sign Board",
-    category: "posters-signs",
-    price: 3200,
-    badge: "NEW ✨ Starting at ₹3,200",
-    image: "https://images.unsplash.com/photo-1572248525483-db821941655b?q=80&w=300",
-    description: "Double-sided LED projection lollipop signs for street side store fronts. Includes rotating options and wall mounts.",
-    specifications: {
-      "Diameter": "24 Inches (60 cm) circular",
-      "Frame": "Aluminium extrusion body with iron wall bracket",
-      "LED": "IP65 Waterproof LED modules",
-      "Production Time": "5-6 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Lollipop Sign", value: 1, priceMultiplier: 1.0 },
-        { label: "2 Lollipop Signs", value: 2, priceMultiplier: 1.95 }
-      ],
-      paper: [
-        { label: "LED Backlit Circular Board", value: "led-circular", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Standard Static LED", value: "static", extraCost: 0 },
-        { label: "Rotating LED Mechanism", value: "rotate", extraCost: 1500 }
-      ]
+    "id": "envelopes",
+    "name": "Envelops",
+    "category": "stationery",
+    "subCategory": "business-essentials",
+    "price": 150,
+    "badge": "Office Mailer",
+    "image": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=300",
+    "description": "Premium customized mailer envelopes. Peel-and-seal strip closure.",
+    "specifications": { "Size": "9.5\" x 4.5\" Standard", "Material": "120 GSM Royal laid paper", "Closure": "Peel & Seal Strip" },
+    "options": {
+      "quantity": [ { "label": "50 units", "value": 50, "priceMultiplier": 1.0 }, { "label": "200 units", "value": 200, "priceMultiplier": 3.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "acrylic-signs",
-    name: "Custom Acrylic Wall Signs",
-    category: "posters-signs",
-    price: 1800,
-    badge: "NEW ✨ Starting at ₹1,800",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=300",
-    description: "Elevate your reception lobby with custom acrylic signboards. Features metallic standoffs and laser-cut branding overlays.",
-    specifications: {
-      "Thickness": "5mm Acrylic glass sheet",
-      "Mounts": "4 Corner Stainless Steel Standoffs",
-      "Print": "Reverse UV Direct printing (HD detail)",
-      "Production Time": "4-5 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Signboard (12\" x 18\")", value: 1, priceMultiplier: 1.0 },
-        { label: "1 Signboard (24\" x 36\")", value: 1.5, priceMultiplier: 2.8 }
-      ],
-      paper: [
-        { label: "Clear Glass-look Acrylic", value: "clear", extraCost: 0 },
-        { label: "Frosted Acrylic Sheet", value: "frosted", extraCost: 150 },
-        { label: "Solid Jet Black Acrylic", value: "black", extraCost: 150 }
-      ],
-      finish: [
-        { label: "Standard Wall Stud Standoffs", value: "standoff", extraCost: 0 }
-      ]
+    "id": "invoice-books",
+    "name": "Bills / Invoice Books",
+    "category": "stationery",
+    "subCategory": "business-essentials",
+    "price": 299,
+    "badge": "Accounting",
+    "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=300",
+    "description": "Duplicate NCR (carbonless) bill books. Sequentially numbered for bookkeeping.",
+    "specifications": { "Size": "A5 Book", "Sheets": "50 sets (100 leaves: White original + Pink copy)", "Binding": "Perforated Book" },
+    "options": {
+      "quantity": [ { "label": "5 books", "value": 5, "priceMultiplier": 1.0 }, { "label": "20 books", "value": 20, "priceMultiplier": 3.8 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "receipt-books",
+    "name": "Receipt Books",
+    "category": "stationery",
+    "subCategory": "business-essentials",
+    "price": 279,
+    "badge": "Cash Receipts",
+    "image": "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?q=80&w=300",
+    "description": "Small format cash receipt books with carbonless copy backing.",
+    "specifications": { "Size": "8\" x 3.5\" Landscape", "Leaves": "50 Sets Duplicate", "Numbering": "Red ink numbering" },
+    "options": {
+      "quantity": [ { "label": "5 books", "value": 5, "priceMultiplier": 1.0 }, { "label": "20 books", "value": 20, "priceMultiplier": 3.8 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
 
-  // --- STICKERS & LABELS ---
+  # --- STAMPS AND INK ---
   {
-    id: "stickers",
-    name: "Custom Die-Cut Stickers",
-    category: "stickers-labels",
-    price: 150,
-    badge: "BUY 50 @ ₹150",
-    image: "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=300",
-    description: "Promote your brand on laptops, notebooks, water bottles, and cars. Waterproof, scratch-resistant die-cut vinyl stickers.",
-    specifications: {
-      "Dimensions": "3\" x 3\" Custom Shapes",
-      "Material": "Thick, durable vinyl with strong adhesive",
-      "Weather Resistant": "Yes (UV and Waterproof)",
-      "Production Time": "3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "50 stickers", value: 50, priceMultiplier: 1.0 },
-        { label: "100 stickers", value: 100, priceMultiplier: 1.8 },
-        { label: "500 stickers", value: 500, priceMultiplier: 7.5 }
-      ],
-      paper: [
-        { label: "White Glossy Vinyl", value: "white-vinyl", extraCost: 0 },
-        { label: "Transparent Vinyl", value: "trans-vinyl", extraCost: 40 },
-        { label: "Holographic Vinyl", value: "holo-vinyl", extraCost: 100 }
-      ],
-      finish: [
-        { label: "Glossy Finish", value: "glossy", extraCost: 0 },
-        { label: "Matte Finish", value: "matte", extraCost: 10 }
-      ]
+    "id": "self-inking-stamps",
+    "name": "Rubber Stamps",
+    "category": "stamps-ink",
+    "price": 299,
+    "badge": "Pre-Inked",
+    "image": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=300",
+    "description": "High-quality self-inking stamps. Ditch the external ink pad. Crisp seals.",
+    "specifications": { "Stamp Type": "Self-Inking Pre-Inked Stamp", "Base": "Durable Plastic Mechanism", "Ink color": "Blue / Black / Red" },
+    "options": {
+      "quantity": [ { "label": "1 Stamp", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Stamps", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Medium Rectangular", "value": "medium-rectangular", "extraCost": 0 }, { "label": "Large Rectangular", "value": "large-rectangular", "extraCost": 80 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "sheet-stickers",
-    name: "Custom Sheet Stickers",
-    category: "stickers-labels",
-    price: 180,
-    badge: "Starting at ₹180",
-    image: "https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?q=80&w=300",
-    description: "Print dozens of stickers on a single sheet. Ideal for labels, event badges, and quick branding applications.",
-    specifications: {
-      "Sheet Size": "A4 Paper Size",
-      "Sticker Shapes": "Circle, Square, Rectangular",
-      "Quantity per sheet": "12 to 48 stickers (varies by size)",
-      "Production Time": "2 business days"
-    },
-    options: {
-      quantity: [
-        { label: "5 Sheets", value: 5, priceMultiplier: 1.0 },
-        { label: "10 Sheets", value: 10, priceMultiplier: 1.8 },
-        { label: "50 Sheets", value: 50, priceMultiplier: 7.2 }
-      ],
-      paper: [
-        { label: "Paper Sticker (Gloss)", value: "paper-gloss", extraCost: 0 },
-        { label: "Vinyl Waterproof Sheet", value: "vinyl", extraCost: 100 }
-      ],
-      finish: [
-        { label: "Gloss Varnish", value: "gloss", extraCost: 0 },
-        { label: "Matte Laminate", value: "matte", extraCost: 20 }
-      ]
+    "id": "stamp-pads",
+    "name": "Stamp Pads",
+    "category": "stamps-ink",
+    "price": 99,
+    "badge": "Ink Pad",
+    "image": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=300",
+    "description": "Replacement stamp ink pads. Pre-saturated with rich oil-based stamp ink.",
+    "specifications": { "Size": "90 x 50 mm", "Ink Base": "Vibrant water-based dye", "Casing": "Snap-close metal case" },
+    "options": {
+      "quantity": [ { "label": "1 Pad", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Pads", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "custom-shape-stickers",
-    name: "Custom Shape Stickers",
-    category: "stickers-labels",
-    price: 220,
-    badge: "Starting at ₹220",
-    image: "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?q=80&w=300",
-    description: "Precision-cut stickers that follow the exact outline of your logo or custom illustration. Stands out instantly.",
-    specifications: {
-      "Die-cut type": "Laser Cut Contour",
-      "Material": "4 mil Premium Vinyl",
-      "Resistant": "Water, scratch, and fade proof",
-      "Production Time": "3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "50 units", value: 50, priceMultiplier: 1.0 },
-        { label: "100 units", value: 100, priceMultiplier: 1.8 }
-      ],
-      paper: [
-        { label: "Glossy White Vinyl", value: "white-vinyl", extraCost: 0 },
-        { label: "Metallic Foil Vinyl", value: "foil", extraCost: 80 }
-      ],
-      finish: [
-        { label: "Gloss Finish", value: "gloss", extraCost: 0 },
-        { label: "Matte Finish", value: "matte", extraCost: 10 }
-      ]
-    }
-  },
-  {
-    id: "sticker-singles",
-    name: "Sticker Singles (Individual)",
-    category: "stickers-labels",
-    price: 99,
-    badge: "Starting at ₹99",
-    image: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=300",
-    description: "Individually cut vinyl stickers with paper backs, perfect for handing out at events or packing inside customer shipments.",
-    specifications: {
-      "Size": "2\" x 2\" or 3\" x 3\"",
-      "Packaging": "Bundled in packs with easy peel backs",
-      "Material": "Vinyl Gloss",
-      "Production Time": "2-3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "50 Singles", value: 50, priceMultiplier: 1.0 },
-        { label: "200 Singles", value: 200, priceMultiplier: 3.5 }
-      ],
-      paper: [
-        { label: "Vinyl Gloss (3\")", value: "vinyl-gloss-3", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Glossy", value: "glossy", extraCost: 0 }
-      ]
-    }
-  },
-  {
-    id: "packaging-labels",
-    name: "Product & Packaging Labels",
-    category: "stickers-labels",
-    price: 250,
-    badge: "Starting at ₹250",
-    image: "https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=300",
-    description: "High-adhesion labels customized for boxes, plastic jars, bottles, and cardboard mailers.",
-    specifications: {
-      "Material": "Industrial-grade Vinyl or Kraft paper",
-      "Adhesive": "Strong permanent adhesive",
-      "Roll Option": "Available for 1000+ units",
-      "Production Time": "3-4 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 labels", value: 100, priceMultiplier: 1.0 },
-        { label: "500 labels", value: 500, priceMultiplier: 4.0 },
-        { label: "1000 labels", value: 1000, priceMultiplier: 7.0 }
-      ],
-      paper: [
-        { label: "White Polypropylene (PP)", value: "pp-white", extraCost: 0 },
-        { label: "Brown Kraft Paper (Eco)", value: "kraft", extraCost: 10 },
-        { label: "Clear Synthetic", value: "clear", extraCost: 50 }
-      ],
-      finish: [
-        { label: "Gloss Lamination", value: "gloss", extraCost: 0 },
-        { label: "Matte Tactile Lamination", value: "matte", extraCost: 30 }
-      ]
-    }
-  },
-  {
-    id: "transparent-labels",
-    name: "Transparent Product Labels",
-    category: "stickers-labels",
-    price: 280,
-    badge: "Starting at ₹280",
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=300",
-    description: "Get a seamless 'no-label' look on glass jars and cosmetics containers with clear synthetic transparent labels.",
-    specifications: {
-      "Transparency": "100% Optically Clear",
-      "Waterproof": "Yes, grease & oil resistant",
-      "Print Colors": "Full color + White Ink backing option",
-      "Production Time": "4 business days"
-    },
-    options: {
-      quantity: [
-        { label: "100 labels", value: 100, priceMultiplier: 1.0 },
-        { label: "500 labels", value: 500, priceMultiplier: 4.2 }
-      ],
-      paper: [
-        { label: "Clear PET Synthetic", value: "clear-pet", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Standard CMYK Colors", value: "cmyk", extraCost: 0 },
-        { label: "White Ink Underprint (Vibrant)", value: "white-ink", extraCost: 80 }
-      ]
+    "id": "ink-refills",
+    "name": "Ink Refills",
+    "category": "stamps-ink",
+    "price": 149,
+    "badge": "Stamp Refill",
+    "image": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=300",
+    "description": "Refill bottles for self-inking stamps and traditional pads. Dropper cap nozzle.",
+    "specifications": { "Volume": "25 ml", "Ink Type": "Premium quick-dry stamp ink", "Dropper": "Precision dropper tip" },
+    "options": {
+      "quantity": [ { "label": "1 Bottle", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Bottles", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
 
-  // --- PACKAGING ---
+  # --- POSTERS ---
   {
-    id: "self-adhesive-tapes",
-    name: "Self Adhesive Custom Tapes",
-    category: "packaging",
-    price: 399,
-    badge: "Starting at ₹399",
-    image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=300",
-    description: "Secure your shipping boxes with custom-branded packing tape. Water-activated or heavy-duty plastic adhesive options.",
-    specifications: {
-      "Width": "2 Inches (50mm) standard",
-      "Roll Length": "50 Meters",
-      "Material": "Adhesive Kraft Paper or Reinforced BOPP plastic",
-      "Production Time": "6-8 business days"
-    },
-    options: {
-      quantity: [
-        { label: "2 Rolls", value: 2, priceMultiplier: 1.0 },
-        { label: "10 Rolls", value: 10, priceMultiplier: 4.2 },
-        { label: "50 Rolls", value: 50, priceMultiplier: 18.0 }
-      ],
-      paper: [
-        { label: "Standard Brown Kraft Tape", value: "kraft-brown", extraCost: 0 },
-        { label: "Reinforced White Paper Tape", value: "paper-white", extraCost: 80 },
-        { label: "BOPP Clear Plastic Tape", value: "bopp-clear", extraCost: 50 }
-      ],
-      finish: [
-        { label: "Single Color Print", value: "1color", extraCost: 0 },
-        { label: "Two Color Branding Print", value: "2color", extraCost: 100 }
-      ]
+    "id": "posters-cars",
+    "name": "Velocity & Pistons (Cars)",
+    "category": "posters",
+    "subCategory": "posters-cars",
+    "price": 299,
+    "badge": "Turbo Motorsport",
+    "image": "https://images.unsplash.com/photo-1525609004556-c46c7d6cf0a3?q=80&w=300",
+    "description": "Premium high-definition posters of exotic cars, classic supercars, and F1 racers.",
+    "specifications": { "Size": "12\" x 18\" (A3)", "Material": "300 GSM Art Card", "Finish": "High Gloss Lamination" },
+    "options": {
+      "quantity": [ { "label": "1 Poster", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Posters", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "packaging-boxes",
-    name: "Custom Corrugated Packaging Boxes",
-    category: "packaging",
-    price: 499,
-    badge: "Starting at ₹499",
-    image: "https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=300",
-    description: "High-strength custom corrugated boxes printed with your logo. Perfect for product shipping and luxury subscription boxes.",
-    specifications: {
-      "Material": "3-ply/5-ply Corrugated Board",
-      "Sizes": "Custom sizes available",
-      "Print": "Flexographic or HD Digital Printing",
-      "Production Time": "6-8 business days"
-    },
-    options: {
-      quantity: [
-        { label: "50 boxes", value: 50, priceMultiplier: 1.0 },
-        { label: "200 boxes", value: 200, priceMultiplier: 3.6 }
-      ],
-      paper: [
-        { label: "Kraft Brown Corrugated", value: "kraft-brown", extraCost: 0 },
-        { label: "White Coated Premium", value: "white-premium", extraCost: 100 }
-      ],
-      finish: [
-        { label: "Single color print", value: "1color", extraCost: 0 },
-        { label: "Full CMYK digital wrap", value: "full-color", extraCost: 200 }
-      ]
-    }
-  },
-
-  // --- MARKETING MATERIALS ---
-  {
-    id: "roll-banners",
-    name: "Standee Banner Screens",
-    category: "marketing-materials",
-    price: 890,
-    badge: "Starting at ₹890",
-    image: "https://images.unsplash.com/photo-1561070791-26c113006238?q=80&w=300",
-    description: "Retractable roll-up banners for store entrances, trade shows, and event staging. Sturdy aluminium stand included.",
-    specifications: {
-      "Size": "2.5 x 6 Feet banner area",
-      "Stand": "Aluminium Base with supporting rods",
-      "Material": "Flex Non-Tear Star media banner",
-      "Production Time": "2-3 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Standee", value: 1, priceMultiplier: 1.0 },
-        { label: "3 Standees", value: 3, priceMultiplier: 2.8 },
-        { label: "10 Standees", value: 10, priceMultiplier: 8.5 }
-      ],
-      paper: [
-        { label: "Flex Normal Print", value: "flex-normal", extraCost: 0 },
-        { label: "Star Non-Tear Flex (Rich Colors)", value: "star-non-tear", extraCost: 300 }
-      ],
-      finish: [
-        { label: "Aluminium Standee Roll-up Base", value: "base-stand", extraCost: 0 }
-      ]
+    "id": "posters-bikes",
+    "name": "Two-Wheel Beasts (Bikes)",
+    "category": "posters",
+    "subCategory": "posters-bikes",
+    "price": 299,
+    "badge": "Superbike Racing",
+    "image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=300",
+    "description": "Catchy superbike and custom cafe racer wall art posters. Perfect for garages and dens.",
+    "specifications": { "Size": "12\" x 18\" (A3)", "Material": "300 GSM Art Card", "Finish": "High Gloss" },
+    "options": {
+      "quantity": [ { "label": "1 Poster", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Posters", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "standees",
-    name: "Promotional Rigid Standees",
-    category: "marketing-materials",
-    price: 1200,
-    badge: "Starting at ₹1,200",
-    image: "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?q=80&w=300",
-    description: "Sturdy MDF or Sunboard cutouts on iron frames. Perfect for indoor mall lobbies or outdoor showroom spaces.",
-    specifications: {
-      "Height": "5 Feet or 6 Feet",
-      "Material": "5mm Sunboard pasted on Iron easel stand",
-      "Weight": "4.5 Kg approx",
-      "Production Time": "3-4 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Standee", value: 1, priceMultiplier: 1.0 },
-        { label: "5 Standees", value: 5, priceMultiplier: 4.6 }
-      ],
-      paper: [
-        { label: "5mm Sunboard on Frame", value: "sunboard-5mm", extraCost: 0 }
-      ],
-      finish: [
-        { label: "Standard Rectangular Cut", value: "rect", extraCost: 0 },
-        { label: "Custom Silhouette Shape Cut", value: "custom-cut", extraCost: 250 }
-      ]
+    "id": "posters-sports",
+    "name": "Championship Legends (Sports)",
+    "category": "posters",
+    "subCategory": "posters-sports",
+    "price": 299,
+    "badge": "Athletic Hub",
+    "image": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=300",
+    "description": "High intensity sports action posters. UFC champions, football icons, cricket moments.",
+    "specifications": { "Size": "12\" x 18\" (A3)", "Material": "300 GSM Art Card", "Finish": "Matte Anti-Glare" },
+    "options": {
+      "quantity": [ { "label": "1 Poster", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Posters", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "canopy-tents",
-    name: "Promotional Canopy Tents",
-    category: "marketing-materials",
-    price: 4999,
-    badge: "NEW ✨ Starting at ₹4,999",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=300",
-    description: "Custom printed 4-sided fold-up canopy tents for outdoor advertising, checkposts, and event branding setups.",
-    specifications: {
-      "Dimensions": "4 x 4 x 7 Feet or 6 x 6 x 7 Feet",
-      "Structure": "Powder-coated collapsible iron pipes",
-      "Fabric": "Heavy-duty waterproof PVC flex canvas",
-      "Production Time": "6-8 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Full Canopy Tent", value: 1, priceMultiplier: 1.0 },
-        { label: "3 Full Canopy Tents", value: 3, priceMultiplier: 2.85 }
-      ],
-      paper: [
-        { label: "4x4 Collapsible Iron Stand", value: "iron-4x4", extraCost: 0 },
-        { label: "6x6 Premium Heavy Iron Stand", value: "iron-6x6", extraCost: 1200 }
-      ],
-      finish: [
-        { label: "Solid Roof Print Only", value: "roof", extraCost: 0 },
-        { label: "Roof + 3 Side Backdrops Printed panels", value: "full-print", extraCost: 1800 }
-      ]
+    "id": "posters-pop",
+    "name": "Fandom & Pop Cult (Multiverse)",
+    "category": "posters",
+    "subCategory": "posters-pop",
+    "price": 299,
+    "badge": "Multiverse Pop",
+    "image": "https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?q=80&w=300",
+    "description": "Pop culture fandom posters. Marvel, DC superheroes, trending movies, TV shows, and games.",
+    "specifications": { "Size": "12\" x 18\" (A3)", "Material": "300 GSM Art Card", "Finish": "Gloss Finish" },
+    "options": {
+      "quantity": [ { "label": "1 Poster", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Posters", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "posters-split",
+    "name": "Grid Canvas (Split Frames)",
+    "category": "posters",
+    "subCategory": "posters-split",
+    "price": 599,
+    "badge": "Split Framing",
+    "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=300",
+    "description": "Multi-piece split wall posters (2-piece and 3-piece sets) that form a single panoramic layout.",
+    "specifications": { "Layout": "2-Piece or 3-Piece Split", "Material": "300 GSM Matte Card", "Total Area": "24\" x 36\" extended" },
+    "options": {
+      "quantity": [ { "label": "1 Set (2-Piece)", "value": 1, "priceMultiplier": 1.0 }, { "label": "1 Set (3-Piece)", "value": 1.4, "priceMultiplier": 1.4 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "posters-custom",
+    "name": "Design Studio (Custom Prints)",
+    "category": "posters",
+    "subCategory": "posters-custom",
+    "price": 349,
+    "badge": "DIY Custom",
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=300",
+    "description": "Upload your own photography, designs, or collages. Customized wall posters.",
+    "specifications": { "Size": "12\" x 18\" (A3)", "Material": "300 GSM Matte / Gloss", "Upload format": "JPG, PNG, PDF high-res" },
+    "options": {
+      "quantity": [ { "label": "1 Poster", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Posters", "value": 5, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "backlit-transline",
+    "name": "Backlit Transline Board",
+    "category": "posters",
+    "subCategory": "posters-backlit",
+    "price": 1450,
+    "badge": "Glow Board",
+    "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=300",
+    "description": "Translucent prints for backlit display boxes. High glow color output.",
+    "specifications": { "Material": "Premium Polyester Transline Film", "Thickness": "220 Micron", "Light Diffuser": "Yes, built-in" },
+    "options": {
+      "quantity": [ { "label": "1 Print", "value": 1, "priceMultiplier": 1.0 }, { "label": "5 Prints", "value": 5, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
 
-  // --- CUSTOM GIFTING ---
+  # --- STICKERS & LABELS ---
   {
-    id: "photo-albums",
-    name: "Premium Photo Albums",
-    category: "gifting",
-    price: 850,
-    badge: "Starting at ₹850",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=300",
-    description: "Compile and preserve your weddings, travels, and milestones in high-fidelity layflat custom photobooks.",
-    specifications: {
-      "Dimensions": "8\" x 8\" or 12\" x 8\" Landscape",
-      "Pages": "20 Standard Pages (Expandable)",
-      "Binding": "Hardcover Layflat Binding",
-      "Production Time": "4-5 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Album", value: 1, priceMultiplier: 1.0 },
-        { label: "2 Albums", value: 2, priceMultiplier: 1.95 },
-        { label: "5 Albums", value: 5, priceMultiplier: 4.5 }
-      ],
-      paper: [
-        { label: "Lustre Photographic Paper", value: "lustre", extraCost: 0 },
-        { label: "Metallic High-Gloss Paper", value: "metallic", extraCost: 200 }
-      ],
-      finish: [
-        { label: "Standard Hardcover", value: "hardcover", extraCost: 0 },
-        { label: "Padded Leatherette Cover", value: "leatherette", extraCost: 350 }
-      ]
+    "id": "sheet-stickers",
+    "name": "Die Cut Stickers",
+    "category": "stickers-labels",
+    "price": 149,
+    "badge": "Waterproof 💧",
+    "image": "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=300",
+    "description": "Individually die-cut stickers. Cut to your custom shapes with white background cards.",
+    "specifications": { "Material": "Waterproof White Vinyl", "Shape": "Custom outline cut", "Adhesive": "Removable non-residue" },
+    "options": {
+      "quantity": [ { "label": "20 Stickers", "value": 20, "priceMultiplier": 1.0 }, { "label": "100 Stickers", "value": 100, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
   {
-    id: "custom-mugs",
-    name: "Custom Photo Ceramic Mugs",
-    category: "gifting",
-    price: 199,
-    badge: "BUY 1 @ ₹199",
-    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=300",
-    description: "Personalized ceramic coffee mugs printed with your favorite photos, text, or company logo. Microwave & dishwasher safe.",
-    specifications: {
-      "Capacity": "325 ml (11 Oz)",
-      "Material": "Premium Ceramic",
-      "Print Type": "Sublimation Heat Transfer",
-      "Production Time": "1-2 business days"
-    },
-    options: {
-      quantity: [
-        { label: "1 Mug", value: 1, priceMultiplier: 1.0 },
-        { label: "5 Mugs", value: 5, priceMultiplier: 4.5 },
-        { label: "20 Mugs", value: 20, priceMultiplier: 16.0 }
-      ],
-      paper: [
-        { label: "Standard White Mug", value: "white", extraCost: 0 },
-        { label: "Black Inner/Handle Mug", value: "black-trim", extraCost: 30 },
-        { label: "Magic Color Changing Mug", value: "magic", extraCost: 100 }
-      ],
-      finish: [
-        { label: "Glossy Finish", value: "glossy", extraCost: 0 }
-      ]
+    "id": "vinyl-stickers",
+    "name": "Vinyl Stickers",
+    "category": "stickers-labels",
+    "price": 179,
+    "badge": "Heavy Duty",
+    "image": "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=300",
+    "description": "Extra durable weather-resistant thick vinyl stickers for laptops, cars, and gear.",
+    "specifications": { "Material": "100% Weatherproof Heavy Duty Vinyl", "UV Protection": "Yes, matte coat", "Adhesive": "Strong permanent" },
+    "options": {
+      "quantity": [ { "label": "20 Stickers", "value": 20, "priceMultiplier": 1.0 }, { "label": "100 Stickers", "value": 100, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "product-labels",
+    "name": "Product Labels",
+    "category": "stickers-labels",
+    "price": 249,
+    "badge": "Packaging Labels",
+    "image": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=300",
+    "description": "Pre-cut product labels on sheets. Ideal for jars, bottles, soaps, boxes, and retail bags.",
+    "specifications": { "Size": "2\" Round / Rectangular", "Material": "Semi-Gloss Paper Sticker", "Sheet style": "Kiss-cut sheet" },
+    "options": {
+      "quantity": [ { "label": "100 Labels", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 Labels", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "packaging-labels",
+    "name": "Packaging Labels",
+    "category": "stickers-labels",
+    "price": 269,
+    "badge": "Shipping Labels",
+    "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=300",
+    "description": "Vibrant custom labels for shipping boxes, envelope seals, and mailers.",
+    "specifications": { "Size": "3\" x 4\" Rectangular", "Material": "Writable Matte Sticker Paper", "Adhesive": "Permanent high tack" },
+    "options": {
+      "quantity": [ { "label": "100 Labels", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 Labels", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "waterproof-stickers",
+    "name": "Waterproof Stickers",
+    "category": "stickers-labels",
+    "price": 189,
+    "badge": "Splash Proof",
+    "image": "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=300",
+    "description": "Dishwasher-safe, rainproof custom vinyl stickers. Perfect for bottles and phones.",
+    "specifications": { "Material": "Premium PET waterproof vinyl", "Ink": "UV-cured waterproof inks", "Finish": "Matte protective coating" },
+    "options": {
+      "quantity": [ { "label": "20 Stickers", "value": 20, "priceMultiplier": 1.0 }, { "label": "100 Stickers", "value": 100, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+
+  # --- CUSTOM GIFTING ---
+  {
+    "id": "retro-prints",
+    "name": "Retro Photos Prints",
+    "category": "gifting",
+    "price": 199,
+    "badge": "Vintage Vibe",
+    "image": "images/retro_print_phone.png",
+    "description": "Classic vintage polaroid style prints. Add your own custom captions on the bottom margin.",
+    "specifications": { "Size": "3.5\" x 4.2\" Polaroid size", "Paper": "300 GSM Fuji Film Photo Paper", "Finish": "Satin Semi-Gloss" },
+    "options": {
+      "quantity": [ { "label": "10 Prints", "value": 10, "priceMultiplier": 1.0 }, { "label": "30 Prints", "value": 30, "priceMultiplier": 2.5 }, { "label": "100 Prints", "value": 100, "priceMultiplier": 7.0 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "custom-mug",
+    "name": "Custom Mugs",
+    "category": "gifting",
+    "price": 149,
+    "badge": "Tea & Coffee",
+    "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=300",
+    "description": "Personalized ceramic coffee mugs. Full color sublimation wraps.",
+    "specifications": { "Material": "Premium Ceramic (11 oz)", "Microwave Safe": "Yes, fully compatible", "Print area": "Wrap print" },
+    "options": {
+      "quantity": [ { "label": "1 Mug", "value": 1, "priceMultiplier": 1.0 }, { "label": "10 Mugs", "value": 10, "priceMultiplier": 9.5 } ],
+      "paper": [ { "label": "White Mug", "value": "white-mug", "extraCost": 0 }, { "label": "Magic Mug", "value": "magic-mug", "extraCost": 100 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "photo-frames",
+    "name": "Photo Frames",
+    "category": "gifting",
+    "price": 399,
+    "badge": "Home Decor",
+    "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=300",
+    "description": "Custom photo framing with premium black/wood borders and glass screen fronts.",
+    "specifications": { "Size": "8\" x 10\" Frame", "Material": "Engineered Wood casing", "Front": "High clarity display glass" },
+    "options": {
+      "quantity": [ { "label": "1 Frame", "value": 1, "priceMultiplier": 1.0 }, { "label": "3 Frames", "value": 3, "priceMultiplier": 2.8 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "gift-boxes",
+    "name": "Gift Boxes",
+    "category": "gifting",
+    "price": 499,
+    "badge": "Corporate Gift",
+    "image": "https://images.unsplash.com/photo-1513885018693-47599262157c?q=80&w=300",
+    "description": "Custom printed rigid cardboard boxes for premium gifting presentations.",
+    "specifications": { "Size": "8\" x 8\" x 3\" Box", "Material": "Rigid Cardboard with Matte Paper Wrap", "Closure": "Magnetic flip top" },
+    "options": {
+      "quantity": [ { "label": "5 Boxes", "value": 5, "priceMultiplier": 1.0 }, { "label": "20 Boxes", "value": 20, "priceMultiplier": 3.8 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "keychains",
+    "name": "Keychains",
+    "category": "gifting",
+    "price": 99,
+    "badge": "Pocket Tag",
+    "image": "https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=300",
+    "description": "Acrylic and wooden custom printed double-sided keychains.",
+    "specifications": { "Size": "2\" Custom Shape", "Material": "Double sided thick acrylic", "Ring": "Stainless steel key loop" },
+    "options": {
+      "quantity": [ { "label": "5 Keychains", "value": 5, "priceMultiplier": 1.0 }, { "label": "20 Keychains", "value": 20, "priceMultiplier": 3.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "personalized-gifts",
+    "name": "Personalized Gifts",
+    "category": "gifting",
+    "price": 299,
+    "badge": "Unique Gift",
+    "image": "https://images.unsplash.com/photo-1513885018693-47599262157c?q=80&w=300",
+    "description": "Bespoke personalized items (notebook sets, pen combos, and accessories).",
+    "specifications": { "Contents": "Varies by bundle pack", "Laser Engrave": "Yes, customized name engraving included", "Packaging": "Eco Kraft Box" },
+    "options": {
+      "quantity": [ { "label": "1 Set", "value": 1, "priceMultiplier": 1.0 }, { "label": "10 Sets", "value": 10, "priceMultiplier": 9.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "corporate-gifts",
+    "name": "Corporate Gifts",
+    "category": "gifting",
+    "price": 499,
+    "badge": "Bulk Corporate",
+    "image": "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?q=80&w=300",
+    "description": "Onboarding hampers, leather planner folders, and thermos cups with metallic brand prints.",
+    "specifications": { "Hampers": "Custom corporate curation available", "Branding": "Metallic foil stamp or screen print", "Min Order": "10 hampers" },
+    "options": {
+      "quantity": [ { "label": "10 Hampers", "value": 10, "priceMultiplier": 1.0 }, { "label": "50 Hampers", "value": 50, "priceMultiplier": 4.8 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+
+  # --- EVENT & MARKETING ---
+  {
+    "id": "event-tickets",
+    "name": "Event Tickets",
+    "category": "event-marketing",
+    "price": 249,
+    "badge": "Perforated Pass",
+    "image": "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=300",
+    "description": "Numbered tickets with tear-off stubs. Perforated for easy separation.",
+    "specifications": { "Size": "6.5\" x 2.5\" Standard", "Material": "250 GSM Matte Card", "Perforation": "Tear-off stub stub" },
+    "options": {
+      "quantity": [ { "label": "100 Tickets", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 Tickets", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "entry-passes",
+    "name": "Entry Passes",
+    "category": "event-marketing",
+    "price": 299,
+    "badge": "Event Pass",
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=300",
+    "description": "Sturdy lanyard entry badges for festivals, concerts, conferences, and exhibitions.",
+    "specifications": { "Size": "4\" x 6\"", "Material": "350 GSM Gloss Card", "Hole": "Slot punch for clip" },
+    "options": {
+      "quantity": [ { "label": "50 Passes", "value": 50, "priceMultiplier": 1.0 }, { "label": "200 Passes", "value": 200, "priceMultiplier": 3.6 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "id-cards",
+    "name": "ID Cards",
+    "category": "event-marketing",
+    "price": 99,
+    "badge": "Employee ID",
+    "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300",
+    "description": "Employee and staff plastic identity cards. Single or double sided prints.",
+    "specifications": { "Size": "Standard CR80 size", "Material": "30 Mil Premium PVC", "Finish": "High Gloss" },
+    "options": {
+      "quantity": [ { "label": "5 ID Cards", "value": 5, "priceMultiplier": 1.0 }, { "label": "25 ID Cards", "value": 25, "priceMultiplier": 4.5 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "lanyards",
+    "name": "Lanyards",
+    "category": "event-marketing",
+    "price": 149,
+    "badge": "Brand Lanyard",
+    "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300",
+    "description": "Custom screen-printed satin lanyards with metal fish hooks.",
+    "specifications": { "Width": "20 mm", "Material": "Smooth Premium Satin Ribbon", "Clip": "Metal lobster claw / fish hook" },
+    "options": {
+      "quantity": [ { "label": "10 Lanyards", "value": 10, "priceMultiplier": 1.0 }, { "label": "50 Lanyards", "value": 50, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "coupons",
+    "name": "Coupons",
+    "category": "event-marketing",
+    "price": 199,
+    "badge": "Voucher Coupon",
+    "image": "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?q=80&w=300",
+    "description": "Discount and deal coupons. Perfect for customer order parcel enclosures.",
+    "specifications": { "Size": "3\" x 5\"", "Material": "250 GSM Art Card", "Print": "Double Sided" },
+    "options": {
+      "quantity": [ { "label": "100 Coupons", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 Coupons", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "vouchers",
+    "name": "Vouchers",
+    "category": "event-marketing",
+    "price": 219,
+    "badge": "Gift Voucher",
+    "image": "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?q=80&w=300",
+    "description": "Custom gift vouchers for seasonal store promotions. Smooth matte writing backing.",
+    "specifications": { "Size": "8\" x 3.5\" Landscape", "Material": "300 GSM Luxury laid stock", "Envelopes": "Optional" },
+    "options": {
+      "quantity": [ { "label": "50 Vouchers", "value": 50, "priceMultiplier": 1.0 }, { "label": "200 Vouchers", "value": 200, "priceMultiplier": 3.6 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
+    }
+  },
+  {
+    "id": "raffle-tickets",
+    "name": "Raffle Tickets",
+    "category": "event-marketing",
+    "price": 239,
+    "badge": "Lucky Draw",
+    "image": "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=300",
+    "description": "Numbered raffle books. Dual perforation stamps for lottery drawings.",
+    "specifications": { "Size": "7\" x 3\"", "Material": "170 GSM Uncoated Bond", "Booklets": "Stitch bound in 50s" },
+    "options": {
+      "quantity": [ { "label": "100 Tickets", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 Tickets", "value": 500, "priceMultiplier": 4.2 } ],
+      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
+      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   }
 ];
