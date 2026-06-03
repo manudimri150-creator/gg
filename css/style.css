@@ -3310,6 +3310,239 @@ footer {
 }
 
 
+/* ============================================================
+   SHOPIFY WEB COMPONENTS — BRAND STYLING
+   Uses CSS ::part() to style shadow DOM elements inside
+   shopify-cart, shopify-variant-selector, etc.
+   ============================================================ */
+
+/* ---- SHOPIFY CART MODAL ---- */
+shopify-cart::part(dialog) {
+  border-radius: 1.25rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 25px 60px rgba(124, 58, 237, 0.18), 0 4px 20px rgba(0,0,0,0.12);
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  max-width: 440px;
+  width: 100%;
+}
+
+shopify-cart::part(primary-button) {
+  background: linear-gradient(135deg, hsl(263, 76%, 54%), hsl(282, 90%, 55%));
+  color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  padding: 1rem;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+shopify-cart::part(primary-button):hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+shopify-cart::part(secondary-button) {
+  background-color: transparent;
+  color: var(--text-muted);
+  fill: var(--text-muted);
+  border: 1.5px solid var(--border-light);
+  border-radius: 0.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+shopify-cart::part(secondary-button):hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  fill: var(--primary);
+}
+
+shopify-cart::part(line-heading) {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+shopify-cart::part(line-image) {
+  border-radius: 0.5rem;
+}
+
+shopify-cart::part(line-price) {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ---- SHOPIFY VARIANT SELECTOR ---- */
+shopify-variant-selector::part(form) {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+shopify-variant-selector::part(label) {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+shopify-variant-selector::part(radio) {
+  border: 1.5px solid var(--border-light);
+  border-radius: 0.5rem;
+  padding: 8px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--bg-card, #fff);
+  color: var(--text-primary, #333);
+}
+
+shopify-variant-selector::part(radio):hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+shopify-variant-selector::part(radio-selected) {
+  border-color: var(--primary);
+  background: hsl(263, 76%, 54%, 0.08);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+shopify-variant-selector::part(select) {
+  border: 1.5px solid var(--border-light);
+  border-radius: 0.5rem;
+  padding: 10px 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-primary, #333);
+  background: var(--bg-card, #fff);
+  cursor: pointer;
+}
+
+/* ---- SHOPIFY MEDIA IMAGES ---- */
+shopify-media {
+  display: block;
+  width: 100%;
+}
+
+shopify-media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.75rem;
+  display: block;
+}
+
+.shopify-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card, #f8f8f8);
+  border-radius: 1rem;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+/* ---- SHOPIFY MONEY PRICE ---- */
+shopify-money {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ---- SHOPIFY DATA TEXT ---- */
+shopify-data {
+  display: contents;
+}
+
+/* ---- DARK MODE COMPATIBILITY ---- */
+[data-theme="dark"] shopify-cart::part(dialog) {
+  background: #1a0038;
+  border-color: rgba(255,255,255,0.08);
+  color: #f0e6ff;
+}
+
+[data-theme="dark"] shopify-cart::part(secondary-button) {
+  border-color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7);
+  fill: rgba(255,255,255,0.7);
+}
+
+[data-theme="dark"] shopify-variant-selector::part(radio) {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+}
+
+[data-theme="dark"] shopify-variant-selector::part(select) {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+}
+
+[data-theme="dark"] .shopify-img-wrap {
+  background: rgba(255,255,255,0.04);
+}
+
+/* ---- BTN SECONDARY (Buy Now button) ---- */
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-md, 0.75rem);
+  padding: 0.75rem 1.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .btn-secondary {
+  color: hsl(263, 76%, 75%);
+  border-color: hsl(263, 76%, 65%);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: hsl(263, 76%, 54%);
+  color: #fff;
+}
+
+/* ---- PRODUCT LOADING SKELETON ANIMATION ---- */
+.skeleton {
+  background: linear-gradient(90deg, #e8e0f0 25%, #d4c8e8 50%, #e8e0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
 /* Home page header styles (integrated transparent header) */
 body.home-page header {
   background-color: transparent !important;

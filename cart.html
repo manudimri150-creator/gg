@@ -12,6 +12,8 @@
     })();
   </script>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Shopify Storefront Web Components -->
+  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
 </head>
 <body>
 
@@ -93,6 +95,25 @@
 
 
 
+  <!-- SHOPIFY STORE CONFIGURATION -->
+  <shopify-store
+    store-domain="https://kalaaprintndpack.myshopify.com"
+    public-access-token="f02a306ebe19b31dbad99958269eea68"
+    country="IN"
+    language="EN"
+  ></shopify-store>
+
+  <!-- Shopify Cart embedded on this page (auto-shows as modal) -->
+  <shopify-cart id="main-cart">
+    <div slot="empty" style="text-align:center; padding: 2rem; color: var(--text-muted);">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:1rem; opacity:0.4;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <p style="font-weight:600; font-size:1.1rem;">Your cart is empty</p>
+      <p style="font-size:0.9rem; opacity:0.7;">Looks like you haven't added anything yet.</p>
+      <a href="category.html" class="btn btn-primary" style="margin-top:1rem; display:inline-block;">Explore Products</a>
+    </div>
+    <div slot="checkout-button">Proceed to Checkout →</div>
+  </shopify-cart>
+
   <!-- MOBILE SLIDE-IN DRAWER -->
   <div class="drawer-overlay"></div>
   <div class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
@@ -109,71 +130,23 @@
 
 
   <!-- MAIN CART PAGE LAYOUT -->
-  <main class="container">
-    <h1 class="section-title" style="margin-top: var(--spacing-xl); margin-bottom: var(--spacing-md);">Your Shopping Cart</h1>
-    
-    <div class="cart-page-layout" id="cart-content-root">
-      
-      <!-- LEFT COLUMN: CART ITEMS LIST -->
-      <section class="cart-items-section" id="cart-items-container">
-        <!-- populated dynamically by cart-page.js -->
-        <p style="text-align: center; color: var(--text-muted);">Loading cart items...</p>
-      </section>
+  <main class="container" style="padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); min-height: 60vh;">
+    <h1 class="section-title" style="margin-bottom: var(--spacing-lg);">Your Shopping Cart</h1>
 
-      <!-- RIGHT COLUMN: ORDER SUMMARY SIDEBAR -->
-      <section class="cart-summary-sidebar" id="cart-summary-container">
-        <div class="summary-card">
-          <h2 class="summary-title">Order Summary</h2>
-          
-          <div class="summary-row">
-            <span>Subtotal</span>
-            <span id="summary-subtotal">₹0.00</span>
-          </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: var(--spacing-lg);">
+      <button
+        class="btn btn-primary btn-lg"
+        id="btn-open-cart"
+        onclick="document.getElementById('main-cart').showModal()"
+        style="display: inline-flex; align-items: center; gap: 0.5rem;"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        View &amp; Manage Cart
+      </button>
 
-          <div class="summary-row" style="color: var(--success); display: none;" id="summary-discount-row">
-            <span>Discount (5% OFF)</span>
-            <span id="summary-discount">-₹0.00</span>
-          </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Your cart is managed securely via Shopify. Click above to view items, update quantities, and checkout.</p>
 
-          <div class="summary-row">
-            <span>GST (18%)</span>
-            <span id="summary-gst">₹0.00</span>
-          </div>
-
-          <div class="summary-row">
-            <span>Shipping</span>
-            <span id="summary-shipping">₹0.00</span>
-          </div>
-
-          <div class="summary-row total-row">
-            <span>Total</span>
-            <span id="summary-total">₹0.00</span>
-          </div>
-
-          <!-- Promo Code Input -->
-          <div class="promo-code-input-group">
-            <input type="text" id="promo-input" placeholder="Promo Code (SAVE5)" aria-label="Promo code input">
-            <button class="btn btn-outline" id="btn-apply-promo" style="padding: 6px 16px; font-size:13px;">Apply</button>
-          </div>
-          <div class="promo-status" id="promo-status-msg"></div>
-
-          <!-- Checkout CTA Button -->
-          <button class="btn btn-primary btn-block btn-lg" id="btn-checkout" style="margin-top: var(--spacing-lg);">Proceed to Checkout</button>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- EMPTY CART SCREEN -->
-    <div class="cart-empty-message" id="cart-empty-root" style="display: none;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="9" cy="21" r="1"></circle>
-        <circle cx="20" cy="21" r="1"></circle>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-      </svg>
-      <h2>Your Cart is Empty</h2>
-      <p style="color: var(--text-muted); margin-bottom: var(--spacing-lg); margin-top: var(--spacing-xs);">Looks like you haven't added any customized products to your cart yet.</p>
-      <a href="category.html" class="btn btn-primary btn-lg">Explore Catalog</a>
+      <a href="index.html" style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">&larr; Continue Shopping</a>
     </div>
   </main>
 
@@ -236,6 +209,17 @@
   <!-- Scripts -->
   <script src="js/products-data.js"></script>
   <script src="js/core.js"></script>
-  <script src="js/cart-page.js"></script>
+  <script src="js/shopify-bridge.js"></script>
+  <script>
+    // Auto-open the Shopify cart modal when landing on the cart page
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const cart = document.getElementById('main-cart');
+        if (cart && typeof cart.showModal === 'function') {
+          cart.showModal();
+        }
+      }, 300);
+    });
+  </script>
 </body>
 </html>

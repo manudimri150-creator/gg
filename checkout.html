@@ -12,6 +12,8 @@
     })();
   </script>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Shopify Storefront Web Components -->
+  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
 </head>
 <body>
 
@@ -54,6 +56,14 @@
       </div>
     </div>
   </header>
+
+  <!-- SHOPIFY STORE CONFIGURATION -->
+  <shopify-store
+    store-domain="https://kalaaprintndpack.myshopify.com"
+    public-access-token="f02a306ebe19b31dbad99958269eea68"
+    country="IN"
+    language="EN"
+  ></shopify-store>
 
   <!-- MAIN CHECKOUT SECTION -->
   <main class="container">
@@ -297,6 +307,7 @@
   <!-- Scripts -->
   <script src="js/products-data.js"></script>
   <script src="js/core.js"></script>
+  <script src="js/shopify-bridge.js"></script>
   <script src="js/checkout.js"></script>
 </body>
 </html>
