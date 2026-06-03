@@ -1,0 +1,53 @@
+<main class="container">
+  <div class="category-page-container">
+
+    <!-- CONTENT AREA -->
+    <section class="category-content">
+      <h1 class="section-title" id="category-page-title" style="margin-bottom: var(--spacing-md);">
+        {%- if collection.title -%}
+          {{ collection.title }}
+        {%- else -%}
+          All Products
+        {%- endif -%}
+      </h1>
+
+      <!-- Content Header -->
+      <div class="category-content-header">
+        <div class="category-breadcrumbs" id="breadcrumbs">
+          <a href="{{ routes.root_url }}">Home</a> &gt;
+          {%- if collection.title -%}
+            {{ collection.title }}
+          {%- else -%}
+            Shop All
+          {%- endif -%}
+        </div>
+
+        <!-- Sort -->
+        <div class="category-sort">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select" aria-label="Sort products">
+            <option value="popularity">Popularity</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Catalog Product Grid -->
+      <div class="products-grid" id="catalog-products-grid">
+        <!-- Populated dynamically via category.js -->
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script src="{{ 'category.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Collection",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

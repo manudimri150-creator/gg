@@ -1,0 +1,133 @@
+<main class="container">
+
+  <!-- SHOPIFY PRODUCT CONTEXT (handle set dynamically by shopify-bridge.js) -->
+  <shopify-context id="shopify-product-context" type="product" wait-for-update>
+    <template>
+      <div class="product-detail-container" id="product-details-root">
+
+        <!-- LEFT COLUMN: IMAGE GALLERY -->
+        <section class="product-gallery">
+          <div class="main-image-viewer shopify-img-wrap">
+            <shopify-media
+              query="product.selectedOrFirstAvailableVariant.image"
+              width="600"
+              height="600"
+              layout="constrained"
+            ></shopify-media>
+          </div>
+        </section>
+
+        <!-- RIGHT COLUMN: CONFIGURATION PANEL -->
+        <section class="product-config-panel">
+          <div class="detail-breadcrumbs">
+            <a href="{{ routes.root_url }}">Home</a> &rsaquo;
+            <a href="{{ routes.collections_url }}">Shop</a> &rsaquo;
+            <span><shopify-data query="product.title"></shopify-data></span>
+          </div>
+
+          <h1 class="detail-product-name">
+            <shopify-data query="product.title"></shopify-data>
+          </h1>
+
+          <p class="detail-product-tagline">
+            <shopify-data query="product.description"></shopify-data>
+          </p>
+
+          <!-- Pricing widget -->
+          <div class="detail-pricing-box">
+            <span class="detail-price-label">Price</span>
+            <span class="detail-price-value">
+              <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+            </span>
+          </div>
+
+          <!-- Variant selector -->
+          <div id="dynamic-options-container">
+            <shopify-variant-selector></shopify-variant-selector>
+          </div>
+
+          <!-- Add to Cart / Buy Now -->
+          <div class="add-to-cart-wrapper" style="display: flex; gap: 12px; flex-direction: column; margin-top: 1.5rem;">
+            <button
+              class="btn btn-primary btn-lg btn-block"
+              id="btn-add-to-cart"
+              onclick="document.getElementById('main-cart').addLine(event).showModal()"
+              shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
+            >Add to Cart</button>
+            <button
+              class="btn btn-secondary btn-lg btn-block"
+              id="btn-buy-now"
+              onclick="document.querySelector('shopify-store').buyNow(event)"
+              shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
+            >Buy Now &rarr;</button>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- TABS SECTION: Description, Reviews -->
+      <div class="product-tabs-container">
+        <div class="tabs-headers">
+          <button class="tab-btn active" data-target="tab-desc">Description</button>
+          <button class="tab-btn" data-target="tab-reviews">Reviews</button>
+        </div>
+
+        <div class="tab-content active" id="tab-desc">
+          <div id="full-description">
+            <shopify-data query="product.descriptionHtml"></shopify-data>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-reviews">
+          <div class="review-item">
+            <div class="review-header">
+              <span class="reviewer-name">Amit Sharma</span>
+              <span class="review-stars">★★★★★</span>
+            </div>
+            <p>Superb print quality! Colors are highly accurate and paper thickness is exactly as described. Will order again.</p>
+          </div>
+          <div class="review-item">
+            <div class="review-header">
+              <span class="reviewer-name">Priya Patel</span>
+              <span class="review-stars">★★★★☆</span>
+            </div>
+            <p>Good communication and fast delivery. The rounded corners look really premium on our new brand business cards.</p>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Loading placeholder -->
+    <div shopify-loading-placeholder class="product-detail-container" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+      <div style="text-align:center; color: var(--text-muted);">
+        <div class="skeleton" style="width:300px; height:300px; border-radius:1rem; margin: 0 auto 1rem;"></div>
+        <div class="skeleton" style="width:200px; height:24px; margin: 0 auto 0.5rem; border-radius:4px;"></div>
+        <div class="skeleton" style="width:120px; height:20px; margin: 0 auto; border-radius:4px;"></div>
+      </div>
+    </div>
+  </shopify-context>
+
+</main>
+
+<script>
+  // Tab navigation for product page
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      const target = document.getElementById(btn.dataset.target);
+      if (target) target.classList.add('active');
+    });
+  });
+</script>
+
+<script src="{{ 'product.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

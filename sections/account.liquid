@@ -1,0 +1,100 @@
+<main class="container section-padding">
+  <div class="account-page-layout">
+
+    <!-- LEFT SIDE NAVIGATION TABS -->
+    <nav class="account-nav" aria-label="Account Menu">
+      <button class="account-nav-btn active" data-pane="pane-orders">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Order History
+      </button>
+      <button class="account-nav-btn" data-pane="pane-designs">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        Saved Designs
+      </button>
+      <button class="account-nav-btn" data-pane="pane-addresses">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Saved Addresses
+      </button>
+      <button class="account-nav-btn" data-pane="pane-profile">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        Profile Settings
+      </button>
+    </nav>
+
+    <!-- RIGHT SIDE CONTENT PANES -->
+    <section class="account-content-card">
+
+      <!-- PANE 1: ORDER HISTORY -->
+      <div class="account-content-pane active" id="pane-orders">
+        <h2 class="account-section-title">Your Order History</h2>
+        <div class="order-history-list" id="account-orders-list">
+          <p style="color:var(--text-muted); text-align:center; padding:var(--spacing-md) 0;">Checking for placed orders...</p>
+        </div>
+      </div>
+
+      <!-- PANE 2: SAVED DESIGNS -->
+      <div class="account-content-pane" id="pane-designs">
+        <h2 class="account-section-title">Saved Printing Projects</h2>
+        <div class="design-grid">
+          <div class="design-card">
+            <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1141?q=80&w=150" alt="Saved Business Card Design">
+            <span class="design-title">My Corporate Card v1</span>
+            <p style="font-size:11px; color:var(--text-muted); margin-top:2px;">Last edited: 2 days ago</p>
+            <a href="#" onclick="alert('This will launch the online canvas designer tool in a live production environment.');" style="font-size:12px; color:var(--primary); font-weight:600; margin-top:var(--spacing-sm);">Edit Design</a>
+          </div>
+          <div class="design-card">
+            <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=150" alt="Saved Packaging box Design">
+            <span class="design-title">Product Box Label Kraft</span>
+            <p style="font-size:11px; color:var(--text-muted); margin-top:2px;">Last edited: 1 week ago</p>
+            <a href="#" onclick="alert('This will launch the online canvas designer tool in a live production environment.');" style="font-size:12px; color:var(--primary); font-weight:600; margin-top:var(--spacing-sm);">Edit Design</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 3: SAVED ADDRESSES -->
+      <div class="account-content-pane" id="pane-addresses">
+        <h2 class="account-section-title">Saved Shipping Addresses</h2>
+        <div id="account-addresses-container" style="display:flex; flex-direction:column; gap:var(--spacing-md);">
+          <!-- Rendered dynamically based on profile -->
+        </div>
+      </div>
+
+      <!-- PANE 4: PROFILE SETTINGS -->
+      <div class="account-content-pane" id="pane-profile">
+        <h2 class="account-section-title">Your Profile Info</h2>
+        <form id="profile-edit-form" onsubmit="event.preventDefault(); alert('Profile details updated successfully!');">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="prof-name">Full Name</label>
+              <input type="text" id="prof-name" value="Rajesh Kumar" required>
+            </div>
+            <div class="form-field">
+              <label for="prof-email">Email Address</label>
+              <input type="email" id="prof-email" value="rajesh.kumar@corporate.in" required>
+            </div>
+            <div class="form-field">
+              <label for="prof-phone">Phone Number</label>
+              <input type="tel" id="prof-phone" value="9876543210" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-field">
+              <label for="prof-company">Company (Optional)</label>
+              <input type="text" id="prof-company" value="Kumar Tech Solutions Pvt Ltd">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top:var(--spacing-lg);">Save Changes</button>
+        </form>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<script src="{{ 'account.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Account",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

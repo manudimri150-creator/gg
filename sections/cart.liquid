@@ -1,0 +1,39 @@
+<main class="container" style="padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); min-height: 60vh;">
+  <h1 class="section-title" style="margin-bottom: var(--spacing-lg);">Your Shopping Cart</h1>
+
+  <div style="display: flex; flex-direction: column; align-items: center; gap: var(--spacing-lg);">
+    <button
+      class="btn btn-primary btn-lg"
+      id="btn-open-cart"
+      onclick="document.getElementById('main-cart').showModal()"
+      style="display: inline-flex; align-items: center; gap: 0.5rem;"
+    >
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      View &amp; Manage Cart
+    </button>
+
+    <p style="color: var(--text-muted); font-size: 0.9rem;">Your cart is managed securely via Shopify. Click above to view items, update quantities, and checkout.</p>
+
+    <a href="{{ routes.root_url }}" style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">&larr; Continue Shopping</a>
+  </div>
+</main>
+
+<script>
+  // Auto-open the Shopify cart modal when landing on the cart page
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const cart = document.getElementById('main-cart');
+      if (cart && typeof cart.showModal === 'function') {
+        cart.showModal();
+      }
+    }, 300);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Cart",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}
