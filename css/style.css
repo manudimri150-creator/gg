@@ -4812,3 +4812,70 @@ header .logo-link span {
   }
 }
 
+/* ============================================================
+   MOBILE VIEWPORT AND RESPONSIVENESS REFINEMENTS
+   ============================================================ */
+
+/* 1. Header logo text adjustment under 480px to prevent overflow */
+@media (max-width: 480px) {
+  .logo-print-pack {
+    display: none !important; /* Hide secondary name to make logo fit compact header */
+  }
+  .logo-link {
+    font-size: 22px !important;
+  }
+}
+
+/* 2. Full-width search bar overlay on mobile/tablet to prevent layout wrapping */
+@media (max-width: 768px) {
+  .header-search-wrapper.active {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: var(--bg-header-scrolled, #240056) !important;
+    z-index: 1001 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 var(--spacing-md) !important;
+    box-sizing: border-box !important;
+  }
+  
+  .header-search-wrapper.active .header-search-input {
+    width: calc(100% - 60px) !important;
+    max-width: 100% !important;
+    flex-grow: 1 !important;
+    height: 40px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    padding: 8px 40px 8px 14px !important;
+    background-color: var(--secondary, #ffffff) !important;
+    color: var(--text-dark, #1e1b4b) !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .header-search-wrapper.active .search-trigger {
+    display: none !important;
+  }
+
+  .header-search-wrapper.active .header-search-close {
+    position: absolute !important;
+    right: calc(var(--spacing-md) + 12px) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    color: var(--text-muted) !important;
+  }
+  
+  .header-search-wrapper.active .header-search-results {
+    width: 100vw !important;
+    left: 0 !important;
+    top: 100% !important;
+    border-radius: 0 0 var(--radius-md) var(--radius-md) !important;
+    box-shadow: var(--shadow-lg) !important;
+  }
+}
+
+
