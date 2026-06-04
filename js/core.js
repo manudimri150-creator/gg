@@ -84,8 +84,6 @@ function initNavDrawer() {
       // Get products for this category
       const categoryProducts = window.KalaaData.PRODUCTS.filter(p => p.category === cat.id);
       
-      const isShopify = typeof window.Shopify !== 'undefined' || !window.location.pathname.endsWith('.html');
-      
       let submenuHtml = '';
       if (cat.subCategories && cat.subCategories.length > 0) {
         // Group by subcategory
@@ -98,10 +96,9 @@ function initNavDrawer() {
                 <div class="submenu-group">
                   <div class="submenu-group-title">${sub.name}</div>
                   <div class="submenu-group-items">
-                    ${subProducts.map(prod => {
-                      const prodLink = isShopify ? `/products/${prod.id}` : `product.html?id=${prod.id}`;
-                      return `<a href="${prodLink}">${prod.name}</a>`;
-                    }).join('')}
+                    ${subProducts.map(prod => `
+                      <a href="product.html?id=${prod.id}">${prod.name}</a>
+                    `).join('')}
                   </div>
                 </div>
               `;
@@ -112,17 +109,15 @@ function initNavDrawer() {
         // Flat list
         submenuHtml = `
           <div class="drawer-submenu">
-            ${categoryProducts.map(prod => {
-              const prodLink = isShopify ? `/products/${prod.id}` : `product.html?id=${prod.id}`;
-              return `<a href="${prodLink}">${prod.name}</a>`;
-            }).join('')}
+            ${categoryProducts.map(prod => `
+              <a href="product.html?id=${prod.id}">${prod.name}</a>
+            `).join('')}
           </div>
         `;
       }
       
-      const catLink = isShopify ? `/collections/${cat.id}` : `category.html?category=${cat.id}`;
       li.innerHTML = `
-        <a href="${catLink}" class="drawer-menu-link">
+        <a href="category.html?category=${cat.id}" class="drawer-menu-link">
           <span>${cat.name}</span>
           <svg class="drawer-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
@@ -206,8 +201,7 @@ function initSearchOverlay() {
 
       results.slice(0, 5).forEach(prod => {
         const item = document.createElement('a');
-        const isShopify = typeof window.Shopify !== 'undefined' || !window.location.pathname.endsWith('.html');
-        item.href = isShopify ? `/products/${prod.id}` : `product.html?id=${prod.id}`;
+        item.href = `product.html?id=${prod.id}`;
         item.className = 'header-search-result-item';
         item.innerHTML = `
           <img src="${prod.image}" alt="${prod.name}">

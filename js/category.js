@@ -234,8 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       products.forEach(prod => {
         const card = document.createElement('a');
-        const isShopify = typeof window.Shopify !== 'undefined' || !window.location.pathname.endsWith('.html');
-        card.href = isShopify ? `/products/${prod.id}` : `product.html?id=${prod.id}`;
+        card.href = `product.html?id=${prod.id}`;
         card.className = 'product-card';
         card.innerHTML = `
           ${prod.badge ? `<div class="product-badge">${prod.badge}</div>` : ''}
@@ -273,15 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
-      const isShopify = typeof window.Shopify !== 'undefined' || !window.location.pathname.endsWith('.html');
-      const prodLink = isShopify ? `/products/${prod.id}` : `product.html?id=${prod.id}`;
-      card.innerHTML = `
+    card.innerHTML = `
       <button class="premium-wishlist-btn ${isFavorite ? 'active' : ''}" aria-label="Toggle Wishlist" data-id="${prod.id}">
         <svg viewBox="0 0 24 24" fill="${isFavorite ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>
       </button>
-      <a href="${prodLink}" class="premium-card-link">
+      <a href="product.html?id=${prod.id}" class="premium-card-link">
         ${prod.badge ? `<div class="premium-badge">${prod.badge}</div>` : ''}
         <div class="premium-img-wrapper skeleton">
           <img src="${prod.image}" alt="${prod.name}" loading="lazy" onload="this.parentElement.classList.remove('skeleton')">

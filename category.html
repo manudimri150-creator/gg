@@ -12,8 +12,6 @@
     })();
   </script>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Shopify Storefront Web Components -->
-  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
 </head>
 <body>
 
@@ -94,24 +92,6 @@
   </header>
 
 
-
-  <!-- SHOPIFY STORE CONFIGURATION -->
-  <shopify-store
-    store-domain="kalaaprintndpack.myshopify.com"
-    public-access-token="f02a306ebe19b31dbad99958269eea68"
-    country="IN"
-    language="EN"
-  ></shopify-store>
-
-  <!-- SHOPIFY CART MODAL -->
-  <shopify-cart id="main-cart">
-    <div slot="empty" style="text-align:center; padding: 2rem; color: var(--text-muted);">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:1rem; opacity:0.4;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-      <p style="font-weight:600; font-size:1.1rem;">Your cart is empty</p>
-      <p style="font-size:0.9rem; opacity:0.7;">Add some products to get started!</p>
-    </div>
-    <div slot="checkout-button">Proceed to Checkout →</div>
-  </shopify-cart>
 
   <!-- MOBILE SLIDE-IN DRAWER -->
   <div class="drawer-overlay"></div>
@@ -221,7 +201,6 @@
   <!-- Scripts -->
   <script src="js/products-data.js"></script>
   <script src="js/core.js"></script>
-  <script src="js/shopify-bridge.js"></script>
   <script src="js/category.js"></script>
 </body>
 </html>

@@ -12,8 +12,6 @@
     })();
   </script>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Shopify Storefront Web Components -->
-  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
 </head>
 <body>
 
@@ -95,24 +93,6 @@
 
 
 
-  <!-- SHOPIFY STORE CONFIGURATION -->
-  <shopify-store
-    store-domain="kalaaprintndpack.myshopify.com"
-    public-access-token="f02a306ebe19b31dbad99958269eea68"
-    country="IN"
-    language="EN"
-  ></shopify-store>
-
-  <!-- SHOPIFY CART MODAL -->
-  <shopify-cart id="main-cart">
-    <div slot="empty" style="text-align:center; padding: 2rem; color: var(--text-muted);">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:1rem; opacity:0.4;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-      <p style="font-weight:600; font-size:1.1rem;">Your cart is empty</p>
-      <p style="font-size:0.9rem; opacity:0.7;">Add some products to get started!</p>
-    </div>
-    <div slot="checkout-button">Proceed to Checkout →</div>
-  </shopify-cart>
-
   <!-- MOBILE SLIDE-IN DRAWER -->
   <div class="drawer-overlay"></div>
   <div class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
@@ -130,114 +110,89 @@
 
   <!-- MAIN PRODUCT DETAILS AREA -->
   <main class="container">
+    <div class="product-detail-container" id="product-details-root">
+      
+      <!-- LEFT COLUMN: IMAGE GALLERY -->
+      <section class="product-gallery">
+        <div class="main-image-viewer">
+          <img id="detail-main-img" src="" alt="Product Main Image">
+        </div>
+        <div class="image-thumbnails" id="detail-thumbnails">
+          <!-- Thumbnail buttons populated dynamically -->
+        </div>
+      </section>
 
-    <!-- SHOPIFY PRODUCT CONTEXT (handle set dynamically by shopify-bridge.js) -->
-    <shopify-context id="shopify-product-context" type="product" wait-for-update>
-      <template>
-        <div class="product-detail-container" id="product-details-root">
-
-          <!-- LEFT COLUMN: IMAGE GALLERY -->
-          <section class="product-gallery">
-            <div class="main-image-viewer shopify-img-wrap">
-              <shopify-media
-                query="product.selectedOrFirstAvailableVariant.image"
-                width="600"
-                height="600"
-                layout="constrained"
-              ></shopify-media>
-            </div>
-          </section>
-
-          <!-- RIGHT COLUMN: CONFIGURATION PANEL -->
-          <section class="product-config-panel">
-            <div class="detail-breadcrumbs">
-              <a href="index.html">Home</a> &rsaquo;
-              <a href="category.html">Shop</a> &rsaquo;
-              <span><shopify-data query="product.title"></shopify-data></span>
-            </div>
-
-            <h1 class="detail-product-name">
-              <shopify-data query="product.title"></shopify-data>
-            </h1>
-
-            <p class="detail-product-tagline">
-              <shopify-data query="product.description"></shopify-data>
-            </p>
-
-            <!-- Pricing widget -->
-            <div class="detail-pricing-box">
-              <span class="detail-price-label">Price</span>
-              <span class="detail-price-value">
-                <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
-              </span>
-            </div>
-
-            <!-- Variant selector (size, paper, finish, quantity etc.) -->
-            <div id="dynamic-options-container">
-              <shopify-variant-selector></shopify-variant-selector>
-            </div>
-
-            <!-- Add to Cart / Buy Now -->
-            <div class="add-to-cart-wrapper" style="display: flex; gap: 12px; flex-direction: column; margin-top: 1.5rem;">
-              <button
-                class="btn btn-primary btn-lg btn-block"
-                id="btn-add-to-cart"
-                onclick="document.getElementById('main-cart').addLine(event).showModal()"
-                shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
-              >Add to Cart</button>
-              <button
-                class="btn btn-secondary btn-lg btn-block"
-                id="btn-buy-now"
-                onclick="document.querySelector('shopify-store').buyNow(event)"
-                shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
-              >Buy Now &rarr;</button>
-            </div>
-          </section>
-
+      <!-- RIGHT COLUMN: CONFIGURATION PANEL -->
+      <section class="product-config-panel">
+        <div class="detail-breadcrumbs" id="detail-breadcrumbs">Home > Category > Product</div>
+        
+        <h1 class="detail-product-name" id="detail-name">Product Title</h1>
+        <p class="detail-product-tagline" id="detail-description">Short description goes here explaining printing quality.</p>
+        
+        <!-- Pricing widget -->
+        <div class="detail-pricing-box">
+          <span class="detail-price-label">Estimated Price</span>
+          <span class="detail-price-value" id="detail-price">₹000</span>
         </div>
 
-        <!-- TABS SECTION: Description, Specifications, Reviews -->
-        <div class="product-tabs-container">
-          <div class="tabs-headers">
-            <button class="tab-btn active" data-target="tab-desc">Description</button>
-            <button class="tab-btn" data-target="tab-reviews">Reviews</button>
-          </div>
-
-          <div class="tab-content active" id="tab-desc">
-            <div id="full-description">
-              <shopify-data query="product.descriptionHtml"></shopify-data>
-            </div>
-          </div>
-
-          <div class="tab-content" id="tab-reviews">
-            <div class="review-item">
-              <div class="review-header">
-                <span class="reviewer-name">Amit Sharma</span>
-                <span class="review-stars">★★★★★</span>
-              </div>
-              <p>Superb print quality! Colors are highly accurate and paper thickness is exactly as described. Will order again.</p>
-            </div>
-            <div class="review-item">
-              <div class="review-header">
-                <span class="reviewer-name">Priya Patel</span>
-                <span class="review-stars">★★★★☆</span>
-              </div>
-              <p>Good communication and fast delivery. The rounded corners look really premium on our new brand business cards.</p>
-            </div>
-          </div>
+        <!-- Custom configurations options dynamic container -->
+        <div id="dynamic-options-container">
+          <!-- Dropdowns for size, paper, finish, quantity -->
         </div>
-      </template>
 
-      <!-- Loading placeholder -->
-      <div shopify-loading-placeholder class="product-detail-container" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-        <div style="text-align:center; color: var(--text-muted);">
-          <div class="skeleton" style="width:300px; height:300px; border-radius:1rem; margin: 0 auto 1rem;"></div>
-          <div class="skeleton" style="width:200px; height:24px; margin: 0 auto 0.5rem; border-radius:4px;"></div>
-          <div class="skeleton" style="width:120px; height:20px; margin: 0 auto; border-radius:4px;"></div>
+        <!-- Qty and Cart Button -->
+        <div class="qty-selector">
+          <span class="detail-option-label" style="margin-bottom:0;">Order Quantity:</span>
+          <button class="qty-btn" id="qty-minus" aria-label="Decrease quantity">-</button>
+          <input type="number" class="qty-input" id="qty-input" value="1" min="1" aria-label="Quantity value">
+          <button class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+        </div>
+
+        <div class="add-to-cart-wrapper">
+          <button class="btn btn-primary btn-lg btn-block" id="btn-add-to-cart">Add to Cart</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TABS SECTION BELOW (Description, Specifications, Reviews) -->
+    <div class="product-tabs-container">
+      <div class="tabs-headers">
+        <button class="tab-btn active" data-target="tab-desc">Description</button>
+        <button class="tab-btn" data-target="tab-specs">Specifications</button>
+        <button class="tab-btn" data-target="tab-reviews">Reviews</button>
+      </div>
+      
+      <!-- Tab Contents -->
+      <div class="tab-content active" id="tab-desc">
+        <p id="full-description">Product long description detail text goes here...</p>
+      </div>
+
+      <div class="tab-content" id="tab-specs">
+        <table class="spec-table">
+          <tbody id="specs-table-body">
+            <!-- Key-value rows filled dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-content" id="tab-reviews">
+        <div class="review-item">
+          <div class="review-header">
+            <span class="reviewer-name">Amit Sharma</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p>Superb print quality! Colors are highly accurate and paper thickness is exactly as described. Will order again.</p>
+        </div>
+        <div class="review-item">
+          <div class="review-header">
+            <span class="reviewer-name">Priya Patel</span>
+            <span class="review-stars">★★★★☆</span>
+          </div>
+          <p>Good communication and fast delivery. The rounded corners look really premium on our new brand business cards.</p>
         </div>
       </div>
-    </shopify-context>
-
+    </div>
   </main>
 
   <!-- FOOTER -->
@@ -299,19 +254,6 @@
   <!-- Scripts -->
   <script src="js/products-data.js"></script>
   <script src="js/core.js"></script>
-  <script src="js/shopify-bridge.js"></script>
   <script src="js/product.js"></script>
-  <script>
-    // Tab navigation for product page
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        btn.classList.add('active');
-        const target = document.getElementById(btn.dataset.target);
-        if (target) target.classList.add('active');
-      });
-    });
-  </script>
 </body>
 </html>
