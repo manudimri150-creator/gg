@@ -35,11 +35,6 @@ const CATEGORIES = [
     "image": "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d1?q=80&w=150"
   },
   {
-    "id": "gifting",
-    "name": "🎁 Custom Gifting",
-    "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=150"
-  },
-  {
     "id": "event-marketing",
     "name": "🎟️ Event & Marketing",
     "image": "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=150"
