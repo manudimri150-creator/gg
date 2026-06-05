@@ -12,27 +12,21 @@ const CATEGORIES = [
     "image": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=150",
     "subCategories": [
       { "id": "paper-products", "name": "Paper Products" },
-      { "id": "packaging-tags", "name": "Packaging & Tags" },
       { "id": "business-essentials", "name": "Business Essentials" }
     ]
-  },
-  {
-    "id": "stamps-ink",
-    "name": "🖋️ Stamps and Ink",
-    "image": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=150"
   },
   {
     "id": "posters",
     "name": "🖼️ Posters",
     "image": "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=150",
     "subCategories": [
-      { "id": "posters-cars", "name": "Velocity & Pistons (Cars)" },
-      { "id": "posters-bikes", "name": "Two-Wheel Beasts (Bikes)" },
-      { "id": "posters-sports", "name": "Championship Legends (Sports)" },
-      { "id": "posters-pop", "name": "Fandom & Pop Cult (Multiverse)" },
-      { "id": "posters-split", "name": "Grid Canvas (Split Frames)" },
-      { "id": "posters-custom", "name": "Design Studio (Custom Prints)" },
-      { "id": "posters-backlit", "name": "Backlit Transline Board" }
+      { "id": "posters-cars", "name": "Cars" },
+      { "id": "posters-bikes", "name": "Bikes" },
+      { "id": "posters-sports", "name": "Sports" },
+      { "id": "posters-pop", "name": "Pop Culture" },
+      { "id": "posters-split", "name": "Split Frames" },
+      { "id": "posters-custom", "name": "Custom Prints" },
+      { "id": "posters-backlit", "name": "Backlit Board" }
     ]
   },
   {
@@ -115,42 +109,9 @@ const PRODUCTS = [
     }
   },
   {
-    "id": "appointment-cards",
-    "name": "Appointment Cards",
-    "category": "visiting-cards",
-    "price": 229,
-    "badge": "Utility",
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=300",
-    "description": "Grid-back appointment cards. Perfect for clinics, salons, and consultants.",
-    "specifications": { "Size": "89 x 54 mm", "Material": "300 GSM Uncoated (Writeable)", "Print": "Writeable Grid on Back" },
-    "options": {
-      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.2 } ],
-      "paper": [ { "label": "Super White Uncoated", "value": "super-white-uncoated", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
-  {
-    "id": "loyalty-cards",
-    "name": "Loyalty Cards",
-    "category": "visiting-cards",
-    "price": 239,
-    "badge": "Customer Loyalty",
-    "image": "https://images.unsplash.com/photo-1563013544-824ae1d704d3?q=80&w=300",
-    "description": "Keep customers returning with custom stamp grid loyalty cards.",
-    "specifications": { "Size": "89 x 54 mm", "Material": "300 GSM Matte Uncoated", "Print": "10-Stamp Grid Backing" },
-    "options": {
-      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.2 } ],
-      "paper": [ { "label": "Stampable Bond Paper", "value": "stampable-bond-paper", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
-
-  // --- STATIONERY - PAPER PRODUCTS ---
-  {
     "id": "thank-you-cards",
     "name": "Thank You Cards",
-    "category": "stationery",
-    "subCategory": "paper-products",
+    "category": "visiting-cards",
     "price": 199,
     "badge": "Handwritten Vibe",
     "image": "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?q=80&w=300",
@@ -162,22 +123,8 @@ const PRODUCTS = [
       "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
-  {
-    "id": "invitation-cards",
-    "name": "Invitation Cards",
-    "category": "stationery",
-    "subCategory": "paper-products",
-    "price": 499,
-    "badge": "Events & Weddings",
-    "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=300",
-    "description": "Invite guests to your corporate events, gallery launches, or private parties.",
-    "specifications": { "Size": "5\" x 7\" Folded", "Material": "300 GSM Luxury Textured", "Envelopes": "Included" },
-    "options": {
-      "quantity": [ { "label": "25 units", "value": 25, "priceMultiplier": 1.0 }, { "label": "100 units", "value": 100, "priceMultiplier": 3.5 } ],
-      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
+
+  // --- STATIONERY - PAPER PRODUCTS ---
   {
     "id": "menu-cards",
     "name": "Menu Cards",
@@ -227,22 +174,6 @@ const PRODUCTS = [
     }
   },
   {
-    "id": "bookmarks",
-    "name": "Bookmarks",
-    "category": "stationery",
-    "subCategory": "paper-products",
-    "price": 99,
-    "badge": "For Readers",
-    "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300",
-    "description": "Custom printed bookmarks with protective gloss or matte lamination.",
-    "specifications": { "Size": "2\" x 6\"", "Material": "350 GSM Extra Rigid Paper", "Lamination": "Double Sided" },
-    "options": {
-      "quantity": [ { "label": "10 units", "value": 10, "priceMultiplier": 1.0 }, { "label": "50 units", "value": 50, "priceMultiplier": 4.0 } ],
-      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
-  {
     "id": "certificates",
     "name": "Certificates",
     "category": "stationery",
@@ -256,72 +187,6 @@ const PRODUCTS = [
       "quantity": [ { "label": "10 units", "value": 10, "priceMultiplier": 1.0 }, { "label": "50 units", "value": 50, "priceMultiplier": 4.0 } ],
       "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
       "finish": [ { "label": "Standard Print", "value": "standard-print", "extraCost": 0 }, { "label": "Gold Foil Accent", "value": "gold-foil-accent", "extraCost": 150 } ]
-    }
-  },
-
-  // --- STATIONERY - PACKAGING & TAGS ---
-  {
-    "id": "clothing-tags",
-    "name": "Clothing Tags",
-    "category": "stationery",
-    "subCategory": "packaging-tags",
-    "price": 249,
-    "badge": "Apparel Labels",
-    "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=300",
-    "description": "Custom cloth tags for garments. Complete with hole punch for string attach.",
-    "specifications": { "Size": "2\" x 3.5\"", "Material": "350 GSM Cardboard", "Punch Hole": "Round 3mm pre-cut" },
-    "options": {
-      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
-      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
-  {
-    "id": "hang-tags",
-    "name": "Hang Tags",
-    "category": "stationery",
-    "subCategory": "packaging-tags",
-    "price": 259,
-    "badge": "Retail Essentials",
-    "image": "https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=300",
-    "description": "Versatile product hang tags for premium wrapping and retail branding details.",
-    "specifications": { "Size": "2\" x 2\" Square / Round", "Material": "300 GSM Matte Paper", "Punch": "Pre-punched center" },
-    "options": {
-      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
-      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
-  {
-    "id": "price-tags",
-    "name": "Price Tags",
-    "category": "stationery",
-    "subCategory": "packaging-tags",
-    "price": 199,
-    "badge": "Retail Pricing",
-    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=300",
-    "description": "Clean price cards with grids on the back for barcode sticker or handwriting.",
-    "specifications": { "Size": "40 x 70 mm", "Material": "280 GSM Matte Uncoated", "Print": "Single Sided Layout" },
-    "options": {
-      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
-      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
-  {
-    "id": "product-tags",
-    "name": "Product Tags",
-    "category": "stationery",
-    "subCategory": "packaging-tags",
-    "price": 269,
-    "badge": "Product Brand",
-    "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=300",
-    "description": "Attach premium branded product tags to bags, cups, artisanal items, and boxes.",
-    "specifications": { "Size": "50 x 80 mm", "Material": "350 GSM Soft Touch Silk paper", "Coating": "Matte Velvet" },
-    "options": {
-      "quantity": [ { "label": "100 units", "value": 100, "priceMultiplier": 1.0 }, { "label": "500 units", "value": 500, "priceMultiplier": 4.0 } ],
-      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
 
@@ -390,22 +255,7 @@ const PRODUCTS = [
       "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
-  {
-    "id": "receipt-books",
-    "name": "Receipt Books",
-    "category": "stationery",
-    "subCategory": "business-essentials",
-    "price": 279,
-    "badge": "Cash Receipts",
-    "image": "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?q=80&w=300",
-    "description": "Small format cash receipt books with carbonless copy backing.",
-    "specifications": { "Size": "8\" x 3.5\" Landscape", "Leaves": "50 Sets Duplicate", "Numbering": "Red ink numbering" },
-    "options": {
-      "quantity": [ { "label": "5 books", "value": 5, "priceMultiplier": 1.0 }, { "label": "20 books", "value": 20, "priceMultiplier": 3.8 } ],
-      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
+
 
   // --- STAMPS AND INK ---
   {
@@ -457,7 +307,7 @@ const PRODUCTS = [
   // --- POSTERS ---
   {
     "id": "posters-cars",
-    "name": "Velocity & Pistons (Cars)",
+    "name": "Cars",
     "category": "posters",
     "subCategory": "posters-cars",
     "price": 299,
@@ -473,7 +323,7 @@ const PRODUCTS = [
   },
   {
     "id": "posters-bikes",
-    "name": "Two-Wheel Beasts (Bikes)",
+    "name": "Bikes",
     "category": "posters",
     "subCategory": "posters-bikes",
     "price": 299,
@@ -489,7 +339,7 @@ const PRODUCTS = [
   },
   {
     "id": "posters-sports",
-    "name": "Championship Legends (Sports)",
+    "name": "Sports",
     "category": "posters",
     "subCategory": "posters-sports",
     "price": 299,
@@ -505,7 +355,7 @@ const PRODUCTS = [
   },
   {
     "id": "posters-pop",
-    "name": "Fandom & Pop Cult (Multiverse)",
+    "name": "Pop Culture",
     "category": "posters",
     "subCategory": "posters-pop",
     "price": 299,
@@ -521,7 +371,7 @@ const PRODUCTS = [
   },
   {
     "id": "posters-split",
-    "name": "Grid Canvas (Split Frames)",
+    "name": "Split Frames",
     "category": "posters",
     "subCategory": "posters-split",
     "price": 599,
@@ -537,7 +387,7 @@ const PRODUCTS = [
   },
   {
     "id": "posters-custom",
-    "name": "Design Studio (Custom Prints)",
+    "name": "Custom Prints",
     "category": "posters",
     "subCategory": "posters-custom",
     "price": 349,
@@ -553,7 +403,7 @@ const PRODUCTS = [
   },
   {
     "id": "backlit-transline",
-    "name": "Backlit Transline Board",
+    "name": "Backlit Board",
     "category": "posters",
     "subCategory": "posters-backlit",
     "price": 1450,
@@ -798,21 +648,7 @@ const PRODUCTS = [
       "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
     }
   },
-  {
-    "id": "lanyards",
-    "name": "Lanyards",
-    "category": "event-marketing",
-    "price": 149,
-    "badge": "Brand Lanyard",
-    "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300",
-    "description": "Custom screen-printed satin lanyards with metal fish hooks.",
-    "specifications": { "Width": "20 mm", "Material": "Smooth Premium Satin Ribbon", "Clip": "Metal lobster claw / fish hook" },
-    "options": {
-      "quantity": [ { "label": "10 Lanyards", "value": 10, "priceMultiplier": 1.0 }, { "label": "50 Lanyards", "value": 50, "priceMultiplier": 4.2 } ],
-      "paper": [ { "label": "Standard Stock", "value": "standard", "extraCost": 0 } ],
-      "finish": [ { "label": "Standard Matte Finish", "value": "standard", "extraCost": 0 } ]
-    }
-  },
+
   {
     "id": "coupons",
     "name": "Coupons",
